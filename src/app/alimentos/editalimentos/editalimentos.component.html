@@ -1,0 +1,75 @@
+<div class="row">
+    <div class="col col-md"></div>
+    <div class="col-10 col-md-8"> 
+      <h2>Editar Alimento</h2>
+      <a class="btn btn-warning float-md-right" routerLink="/alimentos">Regresar</a>
+      <form [formGroup]="alimentoForm" (ngSubmit)="onSubmit()">
+        <div class="form-group">
+          <label for="alimento">Alimento</label>
+          <input type="text"
+                  class="form-control"
+                  id="alimento"
+                  formControlName="alimento"
+                  [(ngModel)]="alimento.alimento">
+          <p class="alert alert-danger" 
+              *ngIf="alimentoForm.controls.alimento.invalid &&
+                      alimentoForm.controls.alimento.touched">
+            El campo Alimento es obligatorio.
+          </p>
+        </div>
+        <div class="form-group">
+          <label for="medida">Medida</label>
+          <input type="text"
+                  class="form-control"
+                  id="medida"
+                  formControlName="medida"
+                  [(ngModel)]="alimento.medida">
+          <p class="alert alert-danger" 
+              *ngIf="alimentoForm.controls.medida.invalid &&
+                      alimentoForm.controls.medida.touched">
+            El campo Medida es obligatorio.
+          </p>
+        </div>
+        <div class="form-group">
+          <label for="pesobruto">Peso bruto</label>
+          <input type="text"
+                  class="form-control"
+                  id="pesobruto"
+                  formControlName="pesobruto"
+                  [(ngModel)]="alimento.pesobruto">
+          <p class="alert alert-danger" 
+              *ngIf="alimentoForm.controls.pesobruto.invalid &&
+                      alimentoForm.controls.pesobruto.touched">
+            El campo Peso bruto es obligatorio.
+          </p>
+        </div>
+        <div class="form-group">
+          <label for="tipo">Tipo</label>
+          <select class="form-control"
+                    id="tipo"
+                    formControlName="tipo"
+                    [(ngModel)]="alimento.tipo">
+                    <option value="">Seleccione...</option>
+                    <option value="fruta">fruta</option>
+                    <option value="verdura">verduura</option>
+                    <option value="carne">carne</option>
+                    <option value="coordinador">Coordinador</option>
+                    <option value="pastorzona">Pastor de Zona</option>
+                    <option value="pastorgeneral">Pastor General</option>      
+          </select>
+          <p class="alert alert-danger" 
+              *ngIf="alimentoForm.controls.tipo.invalid &&
+                      alimentoForm.controls.tipo.touched">
+            El campo Tipo es obligatorio.
+          </p>
+        </div>
+        <button type="submit"
+                class="btn btn-primary">
+                Guardar Cambios
+        </button>
+        <a class="btn btn-danger" routerLink="/alimentos">Cancelar</a>
+      </form>
+    </div>
+    <div class="col col-md"></div>
+  </div>
+  

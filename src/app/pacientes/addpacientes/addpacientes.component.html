@@ -1,0 +1,120 @@
+<div class="row">
+  <div class="col col-md"></div>
+  <div class="col-10 col-md-8">
+    <h2>Añadir nuevo Paciente</h2>
+    <a class="btn btn-warning float-md-right" routerLink="/pacientes">Regresar</a>
+
+    <form [formGroup]="pacienteForm" (ngSubmit)="onSubmit()">
+      <div class="form-group">
+        <label for="paciente">Paciente</label>
+        <input type="text"
+                class="form-control"
+                id="paciente"
+                formControlName="paciente">
+        <p class="alert alert-danger"
+            *ngIf="pacienteForm.controls.paciente.invalid &&
+                    pacienteForm.controls.paciente.touched">
+          El campo Paciente es obligatorio.          
+        </p>
+      </div>
+      <div class="form-group">
+        <label for="edad">Edad</label>
+        <input type="number"
+                class="form-control"
+                id="edad"
+                formControlName="edad">
+        <p class="alert alert-danger"
+            *ngIf="pacienteForm.controls.edad.invalid &&
+                    pacienteForm.controls.edad.touched">
+          El campo Edad es obligatorio.          
+        </p>
+      </div>
+      <div class="form-group">
+        <label for="sexo">Sexo</label>
+        <select class="form-control"
+            id="tipo"
+            formControlName="sexo">
+            <option value="">Seleccione...</option>
+            <option value="hombre">Hombre</option>
+            <option value="mujer">Mujer</option>
+          </select>
+        <p class="alert alert-danger"
+            *ngIf="pacienteForm.controls.sexo.invalid &&
+                    pacienteForm.controls.sexo.touched">
+          El campo Sexo es obligatorio.          
+        </p>
+      </div>
+      <div class="form-group">
+        <label for="email">Email</label>
+        <input type="email"
+                class="form-control"
+                id="email"
+                formControlName="email">
+        <p class="alert alert-danger"
+            *ngIf="pacienteForm.controls.email.invalid &&
+                    pacienteForm.controls.email.touched">
+          El campo Email es obligatorio.          
+        </p>
+      </div>
+      <div class="form-group">
+        <label for="tel">Tel/Cel</label>
+        <input type="text"
+                class="form-control"
+                id="tel"
+                formControlName="tel">
+        <p class="alert alert-danger"
+            *ngIf="pacienteForm.controls.tel.invalid &&
+                    pacienteForm.controls.tel.touched">
+          El campo Tel/Cel es obligatorio.          
+        </p>
+      </div>
+      <div class="form-group">
+        <label for="ocupacion">Ocupacion</label>
+        <input type="text"
+                class="form-control"
+                id="ocupacion"
+                formControlName="ocupacion">
+        <p class="alert alert-danger"
+            *ngIf="pacienteForm.controls.ocupacion.invalid &&
+                    pacienteForm.controls.ocupacion.touched">
+          El campo Ocupacion es obligatorio.          
+        </p>
+      </div>
+      <div class="form-group">
+        <label for="direccion">Direccion</label>
+        <input type="text"
+                class="form-control"
+                id="direccion"
+                formControlName="direccion">
+        <p class="alert alert-danger"
+            *ngIf="pacienteForm.controls.direccion.invalid &&
+                    pacienteForm.controls.direccion.touched">
+          El campo Direccion es obligatorio.          
+        </p>
+      </div>
+      <div class="form-group">
+        <label for="motivoconsulta">Motivo Consulta</label>
+        <input type="text"
+                class="form-control"
+                id="motivoconsulta"
+                formControlName="motivoconsulta">
+        <p class="alert alert-danger"
+            *ngIf="pacienteForm.controls.motivoconsulta.invalid &&
+                    pacienteForm.controls.motivoconsulta.touched">
+          El campo Motivo Consulta es obligatorio.          
+        </p>
+      </div>
+      <button type="submit"
+              class="btn btn-primary"
+              [disabled]="!pacienteForm">
+        Añadir Paciente      
+      </button>
+      <a class="btn btn-danger" routerLink="/pacientes">Cancelar</a>
+      <p class="alert alert-danger"
+        *ngIf="!pacienteForm.valid">
+        Favor de llenar todos los campos obligatorios.
+      </p>
+    </form>
+  </div> 
+  <div class="col col-md"></div>
+</div>

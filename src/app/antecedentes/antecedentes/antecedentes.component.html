@@ -1,0 +1,49 @@
+<h3>Listado de antecendentes</h3>
+<a class="btn btn-primary float-md-right" routerLink="/addantecedentes">Añadir nuevo antecendentes</a>
+
+<br>
+
+<table class="table table-bordered table-hover table-sm" style="margin-top: 60px">
+  <thead>
+    <tr class="filters">
+      <th>Nombre</th>
+      <th>Enfermedad Diagnosticada</th>
+      <th>Sintomas</th>
+      <th>Medicamentos</th>
+      <th>Fam. Enferma</th>
+      <th>Desayuno</th>
+      <th>Comida</th>
+      <th>Cena</th>
+      <th>Entrecomidas</th>
+      <th>Editar</th>
+      <th>Eliminar</th>
+    </tr>
+  </thead>
+  <tbody *ngFor="let antecedente of antecedentes">
+    <td>{{ antecedente.nombre}}</td>
+    <td>{{ antecedente.enfdiag }}</td>
+    <td>{{ antecedente.sintomas }}</td>
+    <td>{{ antecedente.medicamentos }}</td>
+    <td>{{ antecedente.famenf }}</td>
+    <td>{{ antecedente.desayuno  + " " + antecedente.hrdesayuno  }}</td>
+    <td>{{ antecedente.comida  + " " + antecedente.hrcomida  }}</td>
+    <td>{{ antecedente.cena  + " " + antecedente.hrcena  }}</td>
+    <td>{{ antecedente.entrecomidas  + " " + antecedente.hrentrecomidas  }}</td>
+    <td>
+      <button type="button" class="btn btn-success"
+      routerLink="/editantecedentes/{{ antecedente.id$ }}"
+      >
+        <i class="fas fa-pencil-alt"></i>
+      </button>
+    </td>
+    <td>
+      <button type="button" class="btn btn-danger"
+              (click)="eliminarAntecedente(antecedente.id$)"
+              >
+        <i class="fas fa-trash-alt"></i>
+      </button>
+    </td>
+    
+  </tbody>
+
+</table>

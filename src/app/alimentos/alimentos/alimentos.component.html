@@ -1,0 +1,42 @@
+<h3>Listado de Alimentos</h3>
+<a class="btn btn-primary float-md-right" routerLink="/addalimento">Añadir nuevo Alimento <i class="fas fa-user-plus"></i></a>
+
+<div *ngIf="cargando" class="text-center" style="padding-top: 60px">
+  <img src="../../../assets/cargando.gif" alt="cargando">
+</div>
+<br>
+<div *ngIf="!cargando">
+<table class="table table-bordered table-hover table-sm" style="margin-top: 40px">
+  <thead>
+    <tr class="filters">
+      <th>Alimento</th>
+      <th>Medida</th>
+      <th>Peso bruto</th>
+      <th>Tipo</th>
+      <th>Editar</th>
+      <th>Eliminar</th>   
+
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let alimento of alimentos"> 
+      <td>{{ alimento.alimento }}</td>
+      <td>{{ alimento.medida }}</td>
+      <td>{{ alimento.pesobruto }}</td>
+      <td>{{ alimento.tipo }}</td>
+      <td>
+        <button type="button" class="btn btn-success"
+                routerLink="/editalimento/{{ alimento.id$ }}">
+          <i class="fas fa-pencil-alt"></i>
+        </button>
+      </td>
+      <td>
+        <button type="button" class="btn btn-danger"
+                (click)="eliminarAlimento(alimento.id$)">
+          <i class="fas fa-trash-alt"></i>
+        </button>
+      </td>
+    </tr>
+  </tbody>
+</table>
+</div>

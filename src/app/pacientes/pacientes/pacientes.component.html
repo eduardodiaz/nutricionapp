@@ -1,0 +1,45 @@
+<h3>Listado de pacientes</h3>
+<a class="btn btn-primary float-md-right" routerLink="/addpacientes">Añadir nuevo Paciente</a>
+
+<br>
+
+<table class="table table-bordered table-hover table-sm" style="margin-top:60px">
+  <thead>
+    <tr class="filters">
+      <th>Paciente</th>
+      <th>Edad</th>
+      <th>Sexo</th>
+      <th>Email</th>
+      <th>Tel/Cel</th>
+      <th>Ocupacion</th>
+      <th>Direccion</th>
+      <th>Motivo Consulta</th>
+      <th>Editar</th>
+      <th>Eliminar</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let paciente of pacientes">
+      <td>{{ paciente.paciente }}</td>
+      <td>{{ paciente.edad }}</td>
+      <td>{{ paciente.sexo }}</td>
+      <td>{{ paciente.email }}</td>
+      <td>{{ paciente.tel }}</td>
+      <td>{{ paciente.ocupacion }}</td>
+      <td>{{ paciente.direccion }}</td>
+      <td>{{ paciente.motivoconsulta}}</td>
+      <td>
+          <button type="button" class="btn btn-success"
+                  routerLink="/editpacientes/{{paciente.id$}}">
+            <i class="fas fa-pencil-alt"></i>
+          </button>
+        </td>
+        <td>
+          <button type="button" class="btn btn-danger"
+                  (click)="eliminarPaciente(paciente.id$)">
+            <i class="fas fa-trash-alt"></i>
+          </button>
+        </td>
+    </tr>
+  </tbody>
+</table>

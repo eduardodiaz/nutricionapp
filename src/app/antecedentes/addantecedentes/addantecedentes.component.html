@@ -1,0 +1,204 @@
+<div class="row">
+  <div class="col col-md"></div>
+  <div class="col-10 col-md-8">
+    <h2>Añadir nuevo Antecedente</h2>
+    <a class="btn btn-warning float-md-right" routerLink="/antecedentes">Regresar</a>
+    <form [formGroup]="antecedenteForm" (ngSubmit)="onSubmit()">
+      <div class="form-group">
+        <label for="nombre">Nombre</label>
+        <input type="text" 
+                class="form-control"
+                id="nombre"
+                formControlName="nombre">
+          <p class="alert alert-danger"
+            *ngIf="antecedenteForm.controls.nombre.invalid && 
+                  antecedenteForm.controls.nombre.touched">
+          El campo Nombre es obligatorio.
+          </p>   
+      </div>
+      <div class="form-group">
+        <label for="enfdiag">Enfermedad diagnosticada</label>
+        <input type="text" 
+                class="form-control"
+                id="enfdiag"
+                formControlName="enfdiag">
+          <p class="alert alert-danger"
+            *ngIf="antecedenteForm.controls.enfdiag.invalid && 
+                  antecedenteForm.controls.enfdiag.touched">
+          El campo Enfermedad Diagnosticada es obligatorio.
+          </p>   
+      </div>
+      <div class="form-group">
+        <label for="sintomas">Sintomas</label>
+        <button type="button" 
+                class="btn btn-info float-md-right" 
+                data-title="Sintomas"
+                data-toggle="popover" 
+                data-placement="right" 
+                data-content="Diarrea, Estreñimiento,	Gastritis,
+                Úlceras, Naúseas, Pirosis,	Vómito,	Cólitis,
+                Fatiga,	Dolor cabeza,	Dolor pies,	Dolor huesos,	Dolor artic.,	
+                Dolor de esp.,	Reflujo, Otros"><i class="fas fa-info-circle"></i>
+        </button>
+        <input type="text" 
+                class="form-control"
+                id="sintomas"
+                formControlName="sintomas">
+          <p class="alert alert-danger"
+            *ngIf="antecedenteForm.controls.sintomas.invalid && 
+                  antecedenteForm.controls.sintomas.touched">
+          El campo Sintomas es obligatorio.
+          </p>   
+      </div>
+      <div class="form-group">
+        <label for="medicamentos">Medicamentos</label>
+        
+        <input type="text" 
+                class="form-control"
+                id="medicamentos"
+                formControlName="medicamentos">
+          <p class="alert alert-danger"
+            *ngIf="antecedenteForm.controls.medicamentos.invalid && 
+                  antecedenteForm.controls.medicamentos.touched">
+          El campo Medicamentos es obligatorio.
+          </p>   
+      </div>
+      <div class="form-group">
+        <label for="famenf">Fam. Enferma</label>
+        <button type="button" 
+                class="btn btn-info float-md-right" 
+                data-title="Antecedentes Familiares"
+                data-toggle="popover" 
+                data-placement="right" 
+                data-content="Obesidad	Diabetas	HTA	Cáncer	Hipercol	Hipertrig	Otro:
+                "><i class="fas fa-info-circle"></i>
+        </button>
+        <input type="text" 
+                class="form-control"
+                id="famenf"
+                formControlName="famenf">
+          <p class="alert alert-danger"
+            *ngIf="antecedenteForm.controls.famenf.invalid && 
+                  antecedenteForm.controls.famenf.touched">
+          El campo Fam. Enferma es obligatorio.
+          </p>   
+      </div>
+      <hr>
+      <div class="container">
+        <div class="row">
+          <div class="col col-md-2">
+            <div class="form-group">
+              <label for="hrdesayuno">Hora</label>
+              <input type="time" 
+                      class="form-control"
+                      id="hrdesayuno"
+                      formControlName="hrdesayuno">
+                <p class="alert alert-danger"
+                  *ngIf="antecedenteForm.controls.hrdesayuno.invalid && 
+                        antecedenteForm.controls.hrdesayuno.touched">
+                El campo Desayuno es obligatorio.
+                </p>   
+            </div>
+            <div class="form-group">
+              <label for="hrcomida">Hora</label>
+              <input type="time" 
+                      class="form-control"
+                      id="hrcomida"
+                      formControlName="hrcomida">
+                <p class="alert alert-danger"
+                  *ngIf="antecedenteForm.controls.hrcomida.invalid && 
+                        antecedenteForm.controls.hrcomida.touched">
+                El campo Comida es obligatorio.
+                </p>   
+            </div>
+            <div class="form-group">
+              <label for="hrcena">Hora</label>
+              <input type="time" 
+                      class="form-control"
+                      id="hrcena"
+                      formControlName="hrcena">
+                <p class="alert alert-danger"
+                  *ngIf="antecedenteForm.controls.hrcena.invalid && 
+                        antecedenteForm.controls.hrcena.touched">
+                El campo Cena es obligatorio.
+                </p>   
+            </div>
+            <div class="form-group">
+                <label for="hrentrecomidas">Hora</label>
+                <input type="time" 
+                        class="form-control"
+                        id="hrentrecomidas"
+                        formControlName="hrentrecomidas">
+                  <p class="alert alert-danger"
+                    *ngIf="antecedenteForm.controls.hrentrecomidas.invalid && 
+                          antecedenteForm.controls.hrentrecomidas.touched">
+                  El campo Entre comidas es obligatorio.
+                  </p>   
+            </div>
+          </div>
+          <div class="col col-md-10">
+            <div class="form-group">
+              <label for="desayuno">Desayuno</label>
+              <input type="text" 
+                      class="form-control"
+                      id="desayuno"
+                      formControlName="desayuno">
+                <p class="alert alert-danger"
+                  *ngIf="antecedenteForm.controls.desayuno.invalid && 
+                        antecedenteForm.controls.desayuno.touched">
+                El campo Desayuno es obligatorio.
+                </p>   
+            </div>
+            <div class="form-group">
+              <label for="comida">Comida</label>
+              <input type="text" 
+                      class="form-control"
+                      id="comida"
+                      formControlName="comida">
+                <p class="alert alert-danger"
+                  *ngIf="antecedenteForm.controls.comida.invalid && 
+                        antecedenteForm.controls.comida.touched">
+                El campo Comida es obligatorio.
+                </p>   
+            </div>
+            <div class="form-group">
+              <label for="cena">Cena</label>
+              <input type="text" 
+                      class="form-control"
+                      id="cena"
+                      formControlName="cena">
+                <p class="alert alert-danger"
+                  *ngIf="antecedenteForm.controls.cena.invalid && 
+                        antecedenteForm.controls.cena.touched">
+                El campo Cena es obligatorio.
+                </p>   
+            </div>
+            <div class="form-group">
+              <label for="entrecomidas">Entre comidas</label>
+              <input type="text" 
+                      class="form-control"
+                      id="entrecomidas"
+                      formControlName="entrecomidas">
+                <p class="alert alert-danger"
+                  *ngIf="antecedenteForm.controls.entrecomidas.invalid && 
+                        antecedenteForm.controls.entrecomidas.touched">
+                El campo Entre comidas es obligatorio.
+                </p>   
+            </div>
+        </div>
+      </div>
+    </div>
+    <button type="submit" 
+              class="btn btn-primary"
+              [disabled]="!antecedenteForm.valid">
+        Añadir Antecedente
+      </button>
+      <a class="btn btn-danger" routerLink="/antecedentes">Cancelar</a>
+      <p class="alert alert-danger" 
+          *ngIf="!antecedenteForm.valid">
+        Favor de llenar todos los campos obligatorios.  
+      </p>
+    </form>
+    </div>
+  <div class="col col-md"></div>
+</div>

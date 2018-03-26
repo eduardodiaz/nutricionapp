@@ -1,0 +1,52 @@
+<h3>Listado de seguimientos</h3>
+<a class="btn btn-primary float-md-right" routerLink="/addseguimientos">Añadir nuevo seguimiento</a>
+
+<br>
+
+<table class="table table-bordered table-hover table-sm" style="margin-top: 60px">
+  <thead>
+    <tr class="filters">
+      <th>Nombre</th>
+      <th>Fecha</th>
+      <th>Cintura</th>
+      <th>Peso</th>
+      <th>%Gr / kg gr</th>
+      <th>IMC</th>
+      <th>C%Ms / Kg Ms</th>
+      <th>Kcal</th>
+      <th>Dtx</th>
+      <th>P. Art.</th>
+      <th>Editar</th>
+      <th>Eliminar</th>
+    </tr>
+  </thead>
+  <tbody *ngFor="let seguimiento of seguimientos">
+    <td>{{ seguimiento.nombre}}</td>
+    <td>{{ seguimiento.fecha }}</td>
+    <td>{{ seguimiento.cintura }}</td>
+    <td>{{ seguimiento.peso }}</td>
+    <td>{{ seguimiento.gramos }}</td>
+    <td>{{ seguimiento.imc }}</td>
+    <td>{{ seguimiento.kilomasa }}</td>
+    <td>{{ seguimiento.kcal }}</td>
+    <td>{{ seguimiento.dtx }}</td>
+    <td>{{ seguimiento.part }}</td>
+      
+    <td>
+      <button type="button" class="btn btn-success"
+      routerLink="/editseguimientos/{{ seguimiento.id$ }}"
+      >
+        <i class="fas fa-pencil-alt"></i>
+      </button>
+    </td>
+    <td>
+      <button type="button" class="btn btn-danger"
+      (click)="eliminarSeguimiento(seguimiento.id$)"
+      >
+        <i class="fas fa-trash-alt"></i>
+      </button>
+    </td>
+    
+  </tbody>
+
+</table>

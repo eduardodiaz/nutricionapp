@@ -1,0 +1,147 @@
+<div class="row">
+    <div class="co col-md"></div>
+    <div class="col-10 col-md-8">
+      <h2>Editar Seguimiento</h2>
+      <a class="btn btn-warning float-md-right" routerLink="/seguimientos">Regresar</a>
+      <form [formGroup]="seguimientoForm" (ngSubmit)="onSubmit()">
+        <div class="form-group">
+          <label for="nombre">Nombre</label>
+          <input type="text"
+                  class="form-control"
+                  id="nombre"
+                  formControlName="nombre"
+                  [(ngModel)]="seguimiento.nombre">
+          <p class="alert alert-danger"
+              *ngIf="seguimientoForm.controls.nombre.invalid &&
+                    seguimientoForm.controls.nombre.touched">
+            El campo Nombre es obligatorio.          
+          </p>
+        </div>  
+        <div class="form-group">
+          <label for="fecha">Fecha</label>
+          <input type="date"
+                  class="form-control"
+                  id="fecha"
+                  formControlName="fecha"
+                  [(ngModel)]="seguimiento.fecha">
+          <p class="alert alert-danger"
+              *ngIf="seguimientoForm.controls.fecha.invalid &&
+                    seguimientoForm.controls.fecha.touched">
+            El campo Fecha es obligatorio.          
+          </p>
+        </div>
+        <div class="form-group">
+          <label for="cintura">Cintura</label>
+          <input type="number"
+                  class="form-control"
+                  id="cintura"
+                  formControlName="cintura"
+                  [(ngModel)]="seguimiento.cintura">
+          <p class="alert alert-danger"
+              *ngIf="seguimientoForm.controls.cintura.invalid &&
+                    seguimientoForm.controls.cintura.touched">
+            El campo Cintura es obligatorio.          
+          </p>
+        </div>
+        <div class="form-group">
+          <label for="peso">Peso</label>
+          <input type="number"
+                  class="form-control"
+                  id="peso"
+                  formControlName="peso"
+                  [(ngModel)]="seguimiento.peso">
+          <p class="alert alert-danger"
+              *ngIf="seguimientoForm.controls.peso.invalid &&
+                    seguimientoForm.controls.peso.touched">
+            El campo Peso es obligatorio.          
+          </p>
+        </div>
+        <div class="form-group">
+          <label for="gramos">Gramos</label>
+          <input type="number"
+                  class="form-control"
+                  id="gramos"
+                  formControlName="gramos"
+                  [(ngModel)]="seguimiento.gramos">
+          <p class="alert alert-danger"
+              *ngIf="seguimientoForm.controls.gramos.invalid &&
+                    seguimientoForm.controls.gramos.touched">
+            El campo Gramos es obligatorio.          
+          </p>
+        </div>
+        <div class="form-group">
+          <label for="imc">IMC</label>
+          <input type="number"
+                  class="form-control"
+                  id="imc"
+                  formControlName="imc"
+                  [(ngModel)]="seguimiento.imc">
+          <p class="alert alert-danger"
+              *ngIf="seguimientoForm.controls.imc.invalid &&
+                    seguimientoForm.controls.imc.touched">
+            El campo IMC es obligatorio.          
+          </p>
+        </div>
+        <div class="form-group">
+          <label for="kilomasa">Kilomasa</label>
+          <input type="number"
+                  class="form-control"
+                  id="kilomasa"
+                  formControlName="kilomasa"
+                  [(ngModel)]="seguimiento.kilomasa">
+          <p class="alert alert-danger"
+              *ngIf="seguimientoForm.controls.kilomasa.invalid &&
+                    seguimientoForm.controls.kilomasa.touched">
+            El campo Kilomasa es obligatorio.          
+          </p>
+        </div>
+        <div class="form-group">
+          <label for="kcal">kcal</label>
+          <input type="number"
+                  class="form-control"
+                  id="kcal"
+                  formControlName="kcal"
+                  [(ngModel)]="seguimiento.kcal">
+          <p class="alert alert-danger"
+              *ngIf="seguimientoForm.controls.kcal.invalid &&
+                    seguimientoForm.controls.kcal.touched">
+            El campo Kcal es obligatorio.          
+          </p>
+        </div>
+        <div class="form-group">
+          <label for="dtx">Dtx</label>
+          <input type="number"
+                  class="form-control"
+                  id="dtx"
+                  formControlName="dtx"
+                  [(ngModel)]="seguimiento.dtx">
+          <p class="alert alert-danger"
+              *ngIf="seguimientoForm.controls.dtx.invalid &&
+                    seguimientoForm.controls.dtx.touched">
+            El campo Dtx es obligatorio.          
+          </p>
+        </div>
+        <div class="form-group">
+          <label for="part">P art</label>
+          <input type="number"
+                  class="form-control"
+                  id="part"
+                  formControlName="part"
+                  [(ngModel)]="seguimiento.part">
+          <p class="alert alert-danger"
+              *ngIf="seguimientoForm.controls.part.invalid &&
+                    seguimientoForm.controls.part.touched">
+            El campo P art es obligatorio.          
+          </p>
+        </div>
+        <button type="submit"
+                  class="btn btn-primary"
+                  >
+          Guardar Cambios        
+        </button>
+        <a class="btn btn-danger" routerLink="/seguimientos">Cancelar</a>
+
+      </form>
+    </div>
+    <div class="co col-md"></div>
+  </div>
