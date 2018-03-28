@@ -61,5 +61,10 @@ export class AlimentosService {
     }
   }
 
+  getAlimentosSearch(busqueda: string){
+    const url = `${this.alimentosURL}?orderBy="alimento"&startAt="${ busqueda }"&endAt=${ busqueda }\uf8ff"`
+    return this.http.get(url)
+      .map(res => res.json());
+  }
 
 }

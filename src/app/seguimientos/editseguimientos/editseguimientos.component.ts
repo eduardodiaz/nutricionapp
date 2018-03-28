@@ -45,9 +45,9 @@ export class EditseguimientosComponent implements OnInit {
 
   onSubmit(){
     this.seguimiento = this.saveSeguimiento();
-    this.seguimientoService.postSeguimientos(this.seguimiento)
+    this.seguimientoService.putSeguimiento(this.seguimiento, this.id)
       .subscribe(newseguimiento => {
-
+        this.router.navigate(['/seguimientos'])
       })
       this.seguimientoForm.reset();
   }

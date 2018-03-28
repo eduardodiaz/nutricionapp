@@ -42,8 +42,9 @@ export class EditpacientesComponent implements OnInit {
 
   onSubmit(){
     this.paciente = this.savePaciente();
-    this.pacienteService.postPaciente(this.paciente)
+    this.pacienteService.putPaciente(this.paciente, this.id)
       .subscribe(newpaciente => {
+        this.router.navigate(['/pacientes'])
 
       })
       this.pacienteForm.reset();

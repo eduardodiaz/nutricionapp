@@ -37,7 +37,7 @@ export class AntecedentesService {
       .map( res => res.json());
   }
 
-  putAntecendente(antecedente: any, id$: string){
+  putAntecedente(antecedente: any, id$: string){
     const newantecedente = JSON.stringify(antecedente);
     const headers = new Headers({
       'Content-Type':'application/json'

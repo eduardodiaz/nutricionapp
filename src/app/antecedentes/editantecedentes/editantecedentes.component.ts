@@ -49,9 +49,9 @@ export class EditantecedentesComponent implements OnInit {
 
   onSubmit(){
     this.antecedente = this.saveAntecedente();
-    this.antecedenteService.postAntecedentes(this.antecedente)
+    this.antecedenteService.putAntecedente(this.antecedente, this.id)
       .subscribe(newantecedente => {
-
+        this.router.navigate(['/antecedentes'])
       })
       this.antecedenteForm.reset();
 }
