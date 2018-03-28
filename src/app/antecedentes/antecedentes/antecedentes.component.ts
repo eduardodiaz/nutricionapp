@@ -11,6 +11,7 @@ import { AntecedentesService } from '../../servicios/antecedentes.service';
 export class AntecedentesComponent implements OnInit {
 
   antecedentes: any[] = [];
+  cargando = true;
 
   constructor(private antecedenteService: AntecedentesService) { 
     this.antecedenteService.getAntecedentes()
@@ -21,6 +22,7 @@ export class AntecedentesComponent implements OnInit {
           p.id$ = id$;
           this.antecedentes.push(antecedentes[id$]);
         }
+        this.cargando = false;
 
       })
   }

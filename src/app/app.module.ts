@@ -25,22 +25,27 @@ import { AddseguimientosComponent } from './seguimientos/addseguimientos/addsegu
 import { EditseguimientosComponent } from './seguimientos/editseguimientos/editseguimientos.component'; 
 import { SeguimientosService } from './servicios/seguimientos.service';
 import { CalenergeticoComponent } from './calenergenico/calenergetico/calenergetico.component';
+import { RegistoComponent } from './autentificacion/registo/registo.component';
+import { AutentificacionService } from './servicios/autentificacion.service';
+import { IniciosesionComponent } from './autentificacion/iniciosesion/iniciosesion.component';
+import { GuardService } from './servicios/guard.service';
 
 const routes: Routes = [
   { path: '', component: InicioComponent },
-  { path: 'alimentos', component: AlimentosComponent },
-  { path: 'addalimento', component: AddalimentosComponent },
-  { path: 'editalimento/:id', component: EditalimentosComponent },
-  { path: 'pacientes', component: PacientesComponent },
-  { path: 'addpacientes', component: AddpacientesComponent },
-  { path: 'editpacientes/:id', component: EditpacientesComponent },
-  { path: 'antecedentes', component: AntecedentesComponent },
-  { path: 'addantecedentes', component: AddantecedentesComponent },
-  { path: 'editantecedentes/:id', component: EditantecedentesComponent },
-  { path: 'seguimientos', component: SeguimientosComponent },
-  { path: 'addseguimientos', component: AddseguimientosComponent },
-  { path: 'editseguimientos/:id', component: EditseguimientosComponent },
-  
+  { path: 'alimentos', component: AlimentosComponent, canActivate: [GuardService] },
+  { path: 'addalimento', component: AddalimentosComponent, canActivate: [GuardService] },
+  { path: 'editalimento/:id', component: EditalimentosComponent, canActivate: [GuardService] },
+  { path: 'pacientes', component: PacientesComponent, canActivate: [GuardService] },
+  { path: 'addpacientes', component: AddpacientesComponent, canActivate: [GuardService] },
+  { path: 'editpacientes/:id', component: EditpacientesComponent, canActivate: [GuardService] },
+  { path: 'antecedentes', component: AntecedentesComponent, canActivate: [GuardService] },
+  { path: 'addantecedentes', component: AddantecedentesComponent, canActivate: [GuardService] },
+  { path: 'editantecedentes/:id', component: EditantecedentesComponent, canActivate: [GuardService] },
+  { path: 'seguimientos', component: SeguimientosComponent, canActivate: [GuardService] },
+  { path: 'addseguimientos', component: AddseguimientosComponent, canActivate: [GuardService] },
+  { path: 'editseguimientos/:id', component: EditseguimientosComponent, canActivate: [GuardService] },
+  { path: 'registro', component: RegistoComponent },
+  { path: 'iniciosesion', component: IniciosesionComponent },
   { path: '**', component: InicioComponent }
 ];
 
@@ -61,7 +66,9 @@ const routes: Routes = [
     SeguimientosComponent,
     AddseguimientosComponent,
     EditseguimientosComponent,
-    CalenergeticoComponent
+    CalenergeticoComponent,
+    RegistoComponent,
+    IniciosesionComponent
   ],
   imports: [
     BrowserModule,
@@ -73,7 +80,9 @@ const routes: Routes = [
   providers: [AlimentosService, 
               PacientesService,
               AntecedentesService,
-              SeguimientosService],
+              SeguimientosService,
+              AutentificacionService,
+              GuardService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

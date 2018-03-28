@@ -10,7 +10,8 @@
                   class="form-control"
                   id="nombre"
                   formControlName="nombre"
-                  [(ngModel)]="seguimiento.nombre">
+                  [(ngModel)]="seguimiento.nombre"
+                  disabled>
           <p class="alert alert-danger"
               *ngIf="seguimientoForm.controls.nombre.invalid &&
                     seguimientoForm.controls.nombre.touched">

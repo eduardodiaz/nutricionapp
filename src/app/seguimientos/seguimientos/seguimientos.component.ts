@@ -9,6 +9,8 @@ import { SeguimientosService } from '../../servicios/seguimientos.service';
 export class SeguimientosComponent implements OnInit {
 
   seguimientos: any[] = [];
+  cargando = true;
+
 
   constructor(private seguimientoService: SeguimientosService) { 
     this.seguimientoService.getSeguimientos()
@@ -19,6 +21,7 @@ export class SeguimientosComponent implements OnInit {
           p.id$ = id$;
           this.seguimientos.push(seguimientos[id$]);
         }
+        this.cargando = false;
 
       })
   }

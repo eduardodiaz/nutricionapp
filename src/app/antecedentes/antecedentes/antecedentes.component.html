@@ -2,7 +2,11 @@
 <a class="btn btn-primary float-md-right" routerLink="/addantecedentes">Añadir nuevo antecendentes</a>
 
 <br>
-
+<div *ngIf="cargando" class="text-center" style="padding-top: 60px">
+  <img src="../../../assets/cargando.gif" alt="cargando">
+</div>
+<br>
+<div *ngIf="!cargando">
 <table class="table table-bordered table-hover table-sm" style="margin-top: 60px">
   <thead>
     <tr class="filters">
@@ -46,3 +50,4 @@
     
   </tbody>
 </table>
+</div>
