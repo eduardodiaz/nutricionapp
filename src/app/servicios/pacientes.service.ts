@@ -62,5 +62,11 @@ export class PacientesService {
   }
 }
 
+  getPacientesSearch(busqueda: string){
+    const url =  (`${this.pacientesURL }?orderBy="paciente"&startAt="${ busqueda }"&endAt="${busqueda}\uf8ff"`)
+    return this.http.get(url)
+      .map(res=> res.json());
+  }
+
 
 }

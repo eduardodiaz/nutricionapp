@@ -5,13 +5,14 @@
        class="form-control"
        placeholder="Teclee tipo de alimento"
       [formControl]="campoBusqueda"> -->
-
+  <input type="search" class="form-control" placeholder="Teclee alimento"
+  [formControl]="campoBusqueda">
 
 <div *ngIf="cargando" class="text-center" style="padding-top: 60px">
   <img src="../../../assets/cargando.gif" alt="cargando">
 </div>
 <br>
-<div *ngIf="!cargando">
+<div *ngIf="resultados">
 <table class="table table-bordered table-hover table-sm" style="margin-top: 40px">
   <thead>
     <tr class="filters">
@@ -46,6 +47,6 @@
   </tbody>
 </table>
 </div>
-<!-- <div *ngIf="noresultados">
-  <p>No existe ninguna coincidencia</p>
-</div> -->
+<div *ngIf="noresultados">
+  <p class="alert alert-danger">no existen coincidencias</p>
+</div>

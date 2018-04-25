@@ -62,6 +62,11 @@ export class SeguimientosService {
     }
   }
 }
-
+getSeguimientosSearch(busqueda: string){
+  //indica cual sera el campo a buscar
+  const url = (`${this.seguimientosURL }?orderBy="fecha"&startAt="${ busqueda }"&endAt="${busqueda}\uf8ff"`)
+  return this.http.get(url)
+    .map( res=> res.json());
+}
 
 }

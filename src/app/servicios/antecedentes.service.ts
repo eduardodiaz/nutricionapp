@@ -62,5 +62,10 @@ export class AntecedentesService {
   }
 }
 
-
+  getAntecedentesSearch(busqueda: string){
+    //indica cual sera el campo a buscar
+    const url = (`${this.antecedentesURL }?orderBy="nombre"&startAt="${ busqueda }"&endAt="${busqueda}\uf8ff"`)
+    return this.http.get(url)
+      .map( res=> res.json());
+  }
 }

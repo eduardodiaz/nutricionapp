@@ -29,6 +29,7 @@ import { RegistoComponent } from './autentificacion/registo/registo.component';
 import { AutentificacionService } from './servicios/autentificacion.service';
 import { IniciosesionComponent } from './autentificacion/iniciosesion/iniciosesion.component';
 import { GuardService } from './servicios/guard.service';
+import { CalculadoraComponent } from './calculadora/calculadora/calculadora.component';
 
 const routes: Routes = [
   { path: '', component: InicioComponent },
@@ -46,6 +47,7 @@ const routes: Routes = [
   { path: 'editseguimientos/:id', component: EditseguimientosComponent, canActivate: [GuardService] },
   { path: 'registro', component: RegistoComponent },
   { path: 'iniciosesion', component: IniciosesionComponent },
+  { path: 'calculadora', component: CalculadoraComponent },
   { path: '**', component: InicioComponent }
 ];
 
@@ -68,7 +70,8 @@ const routes: Routes = [
     EditseguimientosComponent,
     CalenergeticoComponent,
     RegistoComponent,
-    IniciosesionComponent
+    IniciosesionComponent,
+    CalculadoraComponent
   ],
   imports: [
     BrowserModule,

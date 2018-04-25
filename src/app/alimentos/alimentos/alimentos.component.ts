@@ -15,29 +15,18 @@ export class AlimentosComponent implements OnInit {
   busqueda: string;
 
   alimentos: any[] = [];
-  cargando = true;
+  cargando = false;
   resultados = false;
   noresulados = false;
   
   constructor(private alimentoService: AlimentosService) {
 
-    this.alimentoService.getAlimentos()
-      .subscribe(alimentos => {
-        this.alimentos = [];
-        for(const id$ in alimentos){
-          const p = alimentos[id$];
-          p.id$ = id$;
-          this.alimentos.push(alimentos[id$]);
-        }
-        this.cargando = false;
-
-      })
+   
     }
    
 
   ngOnInit() {
-/*
-    this.campoBusqueda = new FormControl();
+   this.campoBusqueda = new FormControl();
     this.campoBusqueda.valueChanges
       .subscribe(term => {
         this.busqueda = term;
@@ -52,7 +41,7 @@ export class AlimentosComponent implements OnInit {
                 this.alimentos.push(alimentos[id$]);
               } 
               if (this.alimentos.length < 1 && 
-                  this.busqueda.length >= 1){
+                  this.busqueda.length <= 1){
                     this.noresulados = true;
                   } else {
                     this.noresulados = false;
@@ -66,7 +55,7 @@ export class AlimentosComponent implements OnInit {
           this.resultados = false;
         }
       });
-      */
+    
   }
 
   eliminarAlimento(id$){

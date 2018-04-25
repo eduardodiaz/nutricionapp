@@ -1,0 +1,202 @@
+<div class="row">
+  <div class="col col-md"></div>
+  <div class="col-10 col-md-8">
+    <h2>Calculadora</h2>
+    <form [formGroup]="calculadoraForm">
+      <div class="form-grpup">
+        <label for="nombre">Nombre</label>
+        <input type="text" 
+                id="nombre"
+                class="form-control"
+                formControlName="nombre">
+        <p class="alert alert-danger" 
+        *ngIf="calculadoraForm.controls.nombre.invalid &&
+        calculadoraForm.controls.nombre.touched">
+          El campo Nombre es obligatorio.
+        </p>
+      </div>
+      <div class="form-grpup">
+        <label for="peso">Peso (Kg)</label>
+        <input type="number" 
+                id="peso"
+                class="form-control"
+                formControlName="peso">
+        <p class="alert alert-danger" 
+        *ngIf="calculadoraForm.controls.peso.invalid &&
+        calculadoraForm.controls.peso.touched">
+          El campo Peso es obligatorio.
+        </p>
+      </div>
+      <div class="form-grpup">
+        <label for="edad">Edad</label>
+        <input type="number" 
+                id="edad"
+                class="form-control"
+                formControlName="edad">
+        <p class="alert alert-danger" 
+        *ngIf="calculadoraForm.controls.edad.invalid &&
+        calculadoraForm.controls.edad.touched">
+          El campo Edad es obligatorio.
+        </p>
+      </div>
+      <div class="form-grpup">
+        <label for="talla">Talla (mt)</label>
+        <input type="number" 
+                id="talla"
+                class="form-control"
+                formControlName="talla">
+        <p class="alert alert-danger" 
+        *ngIf="calculadoraForm.controls.talla.invalid &&
+        calculadoraForm.controls.talla.touched">
+          El campo Talla es obligatorio.
+        </p>
+      </div>
+      <div class="form-grpup">
+        <label for="pesoidealmin">Peso Ideal min</label>
+        <input type="number" 
+                id="pesoidealmin"
+                class="form-control"
+                formControlName="pesoidealmin"
+                [(ngModel)]="calculadoraForm.value.pesoidealmin"
+                disabled>
+        <p class="alert alert-danger" 
+        *ngIf="calculadoraForm.controls.pesoidealmin.invalid &&
+        calculadoraForm.controls.pesoidealmin.touched">
+          El campo Peso Ideal min es obligatorio.
+        </p>
+      </div>
+      <div class="form-grpup">
+        <label for="pesoidealmax">Peso Ideal max</label>
+        <input type="number" 
+                id="pesoidealmax"
+                class="form-control"
+                formControlName="pesoidealmax"
+                [(ngModel)]="calculadoraForm.value.pesoidealmax"
+                disabled>
+        <p class="alert alert-danger" 
+        *ngIf="calculadoraForm.controls.pesoidealmax.invalid &&
+        calculadoraForm.controls.pesoidealmax.touched">
+          El campo pesoidealmax es obligatorio.
+        </p>
+      </div>
+      <div class="form-grpup">
+        <label for="geb">geb</label>
+        <input type="number" 
+                id="geb"
+                class="form-control"
+                formControlName="geb"
+                [(ngModel)]="calculadoraForm.value.geb"
+                disabled>
+        <p class="alert alert-danger" 
+        *ngIf="calculadoraForm.controls.geb.invalid &&
+        calculadoraForm.controls.geb.touched">
+          El campo geb es obligatorio.
+        </p>
+      </div>
+      <div class="form-grpup">
+        <label for="get">get</label>
+        <input type="number" 
+                id="get"
+                class="form-control"
+                formControlName="get"
+                [(ngModel)]="calculadoraForm.value.get"
+                disabled>
+        <p class="alert alert-danger" 
+        *ngIf="calculadoraForm.controls.get.invalid &&
+        calculadoraForm.controls.get.touched">
+          El campo get es obligatorio.
+        </p>
+      </div>
+      <div class="form-grpup">
+        <label for="hco">HCO</label>
+        <input type="number" 
+                id="hco"
+                class="form-control"
+                formControlName="hco"
+                [(ngModel)]="calculadoraForm.value.hco"
+                >
+        <p class="alert alert-danger" 
+        *ngIf="calculadoraForm.controls.hco.invalid &&
+        calculadoraForm.controls.hco.touched">
+          El campo hHCO es obligatorio.
+        </p>
+      </div>
+      <div class="form-grpup">
+        <label for="reshco">reshco</label>
+        <input type="number" 
+                id="reshco"
+                class="form-control"
+                formControlName="reshco"
+                [(ngModel)]="calculadoraForm.value.reshco"
+                disabled
+                >
+        <p class="alert alert-danger" 
+        *ngIf="calculadoraForm.controls.reshco.invalid &&
+        calculadoraForm.controls.reshco.touched">
+          El campo reshco es obligatorio.
+        </p>
+      </div>
+       
+      <div class="form-grpup">
+        <label for="lip">LIP</label>
+        <input type="number" 
+                id="lip"
+                class="form-control"
+                formControlName="lip"
+                [(ngModel)]="calculadoraForm.value.lip"
+                >
+        <p class="alert alert-danger" 
+        *ngIf="calculadoraForm.controls.lip.invalid &&
+        calculadoraForm.controls.lip.touched">
+          El campo lip es obligatorio.
+        </p>
+      </div>
+      <div class="form-grpup">
+        <label for="reslip">reslip</label>
+        <input type="number" 
+                id="reslip"
+                class="form-control"
+                formControlName="reslip"
+                [(ngModel)]="calculadoraForm.value.reslip"
+                disabled
+                >
+        <p class="alert alert-danger" 
+        *ngIf="calculadoraForm.controls.reslip.invalid &&
+        calculadoraForm.controls.reslip.touched">
+          El campo reslip es obligatorio.
+        </p>
+      </div>
+      
+      <div class="form-grpup">
+        <label for="prot">prot</label>
+        <input type="number" 
+                id="prot"
+                class="form-control"
+                formControlName="prot"
+                [(ngModel)]="calculadoraForm.value.prot"
+                >
+        <p class="alert alert-danger" 
+        *ngIf="calculadoraForm.controls.prot.invalid &&
+        calculadoraForm.controls.prot.touched">
+          El campo prot es obligatorio.
+        </p>
+      </div>
+        <div class="form-grpup">
+          <label for="resprot">resprot</label>
+          <input type="number" 
+                  id="resprot"
+                  class="form-control"
+                  formControlName="resprot"
+                  [(ngModel)]="calculadoraForm.value.resprot"
+                  disabled
+                  >
+          <p class="alert alert-danger" 
+          *ngIf="calculadoraForm.controls.resprot.invalid &&
+          calculadoraForm.controls.resprot.touched">
+            El campo resprot es obligatorio.
+          </p>
+      </div>
+    </form>
+  </div>
+  <div class="col col-md"></div>
+</div>

@@ -34,6 +34,11 @@
       </li>
       <li class="nav-item" routerLinkActive="active"
           [routerLinkActiveOptions]="{exact:true}"
+          *ngIf="isAuth()">
+          <a class="nav-link" routerLink="/calculadora">Calculadora</a>
+      </li>
+      <li class="nav-item" routerLinkActive="active"
+          [routerLinkActiveOptions]="{exact:true}"
           *ngIf="!isAuth()">
           <button class="btn btn-success" routerLink="/iniciosesion">Login</button>
       </li>

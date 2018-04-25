@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { PacientesService } from '../../servicios/pacientes.service';
+import { FormControl } from '@angular/forms';
 
 
  
@@ -10,26 +11,53 @@ import { PacientesService } from '../../servicios/pacientes.service';
 })
 export class PacientesComponent implements OnInit {
 
+  campoBusqueda: FormControl;
+  busqueda: string;
+  
   pacientes: any[] = [];
-  cargando = true;
+  cargando = false;
+  resultados = false;
+  noresultados = false;
+
+
 
   constructor(private pacienteService: PacientesService) { 
 
-    this.pacienteService.getPacientes()
-      .subscribe(pacientes => {
-        this.pacientes = [];
-        for(const id$ in pacientes){
-          const p = pacientes[id$];
-          p.id$ = id$;
-          this.pacientes.push(pacientes[id$]);
-        }
-        this.cargando = false;
-      })
-    
+ 
 
   }
 
   ngOnInit() {
+
+    this.campoBusqueda = new FormControl();
+      this.campoBusqueda.valueChanges
+      .subscribe(term => {
+        
+        this.busqueda = term;
+        this.cargando = true;
+        if(this.busqueda.length !== 0){
+          this.pacienteService.getPacientesSearch(this.busqueda)
+            .subscribe(pacientes => {
+              this.pacientes = [];
+              for(const id$ in pacientes) {
+                const p = pacientes[id$];
+                p.id$ = id$;
+                this.pacientes.push(pacientes[id$]);
+              }
+              if(this.pacientes.length < 1 && this.busqueda.length <= 1){
+                this.noresultados = true;
+              }else{
+                this.noresultados = false;
+              }
+            })
+            this.cargando = false;
+            this.resultados = true;
+        } else {
+          this.pacientes = [];
+          this.cargando = false;
+          this.resultados = false;
+        }
+      });
   }
 
   eliminarPaciente(id$){
