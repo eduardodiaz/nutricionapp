@@ -47,7 +47,7 @@ const routes: Routes = [
   { path: 'editseguimientos/:id', component: EditseguimientosComponent, canActivate: [GuardService] },
   { path: 'registro', component: RegistoComponent },
   { path: 'iniciosesion', component: IniciosesionComponent },
-  { path: 'calculadora', component: CalculadoraComponent },
+  { path: 'calculadora', component: CalculadoraComponent, canActivate: [GuardService] },
   { path: '**', component: InicioComponent }
 ];
 

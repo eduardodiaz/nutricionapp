@@ -17,7 +17,7 @@ export class AlimentosComponent implements OnInit {
   alimentos: any[] = [];
   cargando = false;
   resultados = false;
-  noresulados = false;
+  noresultados = false;
   
   constructor(private alimentoService: AlimentosService) {
 
@@ -42,9 +42,9 @@ export class AlimentosComponent implements OnInit {
               } 
               if (this.alimentos.length < 1 && 
                   this.busqueda.length <= 1){
-                    this.noresulados = true;
+                    this.noresultados = true;
                   } else {
-                    this.noresulados = false;
+                    this.noresultados = false;
                   }
             })
             this.cargando = false;
