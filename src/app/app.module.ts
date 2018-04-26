@@ -50,6 +50,7 @@ const routes: Routes = [
   { path: 'calculadora', component: CalculadoraComponent, canActivate: [GuardService] },
   { path: '**', component: InicioComponent }
 ];
+ 
 
 @NgModule({
   declarations: [
