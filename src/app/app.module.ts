@@ -24,7 +24,6 @@ import { SeguimientosComponent } from './seguimientos/seguimientos/seguimientos.
 import { AddseguimientosComponent } from './seguimientos/addseguimientos/addseguimientos.component';
 import { EditseguimientosComponent } from './seguimientos/editseguimientos/editseguimientos.component'; 
 import { SeguimientosService } from './servicios/seguimientos.service';
-import { CalenergeticoComponent } from './calenergenico/calenergetico/calenergetico.component';
 import { RegistoComponent } from './autentificacion/registo/registo.component';
 import { AutentificacionService } from './servicios/autentificacion.service';
 import { IniciosesionComponent } from './autentificacion/iniciosesion/iniciosesion.component';
@@ -68,7 +67,6 @@ const routes: Routes = [
     SeguimientosComponent,
     AddseguimientosComponent,
     EditseguimientosComponent,
-    CalenergeticoComponent,
     RegistoComponent,
     IniciosesionComponent
     ],
