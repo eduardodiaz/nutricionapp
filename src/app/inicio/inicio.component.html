@@ -1,1 +1,211 @@
 <h3>Bienvenido a Nutricion App</h3>
+<div class="row">
+    <div class="col col-md"></div>
+    <div class="col-8 col-md-6">
+      <form [formGroup]="calculadoraForm">
+        <div class="form-grpup">
+          <label for="peso">Peso (Kg)</label>
+          <input type="number" 
+                  id="peso"
+                  class="form-control"
+                  formControlName="peso">
+          <p class="alert alert-danger" 
+          *ngIf="calculadoraForm.controls.peso.invalid &&
+          calculadoraForm.controls.peso.touched">
+            El campo Peso es obligatorio.
+          </p>
+        </div>
+        <div class="form-grpup">
+          <label for="edad">Edad</label>
+          <input type="number" 
+                  id="edad"
+                  class="form-control"
+                  formControlName="edad">
+          <p class="alert alert-danger" 
+          *ngIf="calculadoraForm.controls.edad.invalid &&
+          calculadoraForm.controls.edad.touched">
+            El campo Edad es obligatorio.
+          </p>
+        </div>
+        <div class="form-grpup">
+          <label for="talla">Talla (cm)</label>
+          <input type="number" 
+                  id="talla"
+                  class="form-control"
+                  formControlName="talla">
+          <p class="alert alert-danger" 
+          *ngIf="calculadoraForm.controls.talla.invalid &&
+          calculadoraForm.controls.talla.touched">
+            El campo Talla es obligatorio.
+          </p>
+        </div>
+        <div class="row">
+          <div class="col col-md-6">
+            <div class="form-grpup">
+              <label for="pesoidealmin">Peso Ideal min</label>
+              <input type="number" 
+                      id="pesoidealmin"
+                      class="form-control"
+                      formControlName="pesoidealmin"
+                      [(ngModel)]="calculadoraForm.value.pesoidealmin"
+                      disabled>
+            </div>
+          </div>
+          <div class="col col-md-6">
+            <div class="form-grpup">
+              <label for="pesoidealmax">Peso Ideal max</label>
+              <input type="number" 
+                      id="pesoidealmax"
+                      class="form-control"
+                      formControlName="pesoidealmax"
+                      [(ngModel)]="calculadoraForm.value.pesoidealmax"
+                      disabled>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col col-md-6">
+            <div class="form-grpup">
+              <label for="geb">geb</label>
+              <input type="number" 
+                      id="geb"
+                      class="form-control"
+                      formControlName="geb"
+                      [(ngModel)]="calculadoraForm.value.geb"
+                      disabled>
+            </div>
+          </div>
+          <div class="col col-md-6">
+            <div class="form-grpup">
+              <label for="get">get</label>
+              <input type="number" 
+                      id="get"
+                      class="form-control"
+                      formControlName="get"
+                      [(ngModel)]="calculadoraForm.value.get"
+                      disabled>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+            <div class="col col-md-4">
+              <div class="form-grpup">
+                <label for="hco">HCO %</label>
+                <input type="number" 
+                        id="hco"
+                        class="form-control"
+                        formControlName="hco"
+                        [(ngModel)]="calculadoraForm.value.hco"
+                        >
+                <p class="alert alert-danger" 
+                *ngIf="calculadoraForm.controls.hco.invalid &&
+                calculadoraForm.controls.hco.touched">
+                  El campo HCO es obligatorio.
+                </p>
+              </div>
+            </div>
+            <div class="col col-md-4">
+              <div class="form-grpup">
+                <label for="lip">LIP %</label>
+                <input type="number" 
+                        id="lip"
+                        class="form-control"
+                        formControlName="lip"
+                        [(ngModel)]="calculadoraForm.value.lip"
+                        >
+                <p class="alert alert-danger" 
+                *ngIf="calculadoraForm.controls.lip.invalid &&
+                calculadoraForm.controls.lip.touched">
+                  El campo lip es obligatorio.
+                </p>
+              </div>
+            </div>
+            <div class="col col-md-4">
+              <div class="form-grpup">
+                <label for="prot">PROT %</label>
+                <input type="number" 
+                      id="prot"
+                      class="form-control"
+                      formControlName="prot"
+                      [(ngModel)]="calculadoraForm.value.prot"
+                      >
+                <p class="alert alert-danger" 
+                *ngIf="calculadoraForm.controls.prot.invalid &&
+                calculadoraForm.controls.prot.touched">
+                  El campo PROT es obligatorio.
+              </p>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col col-md-4">
+            <div class="form-grpup">
+              <label for="reshco">reshco</label>
+              <input type="number" 
+                      id="reshco"
+                      class="form-control"
+                      formControlName="reshco"
+                      [(ngModel)]="calculadoraForm.value.reshco"
+                      disabled
+                      >
+            </div>
+          </div>
+          <div class="col col-md-4">
+            <div class="form-grpup">
+              <label for="reslip">reslip</label>
+              <input type="number" 
+                      id="reslip"
+                      class="form-control"
+                      formControlName="reslip"
+                      [(ngModel)]="calculadoraForm.value.reslip"
+                      disabled
+                      >
+            </div>
+          </div>
+          <div class="col col-md-4">
+            <div class="form-grpup">
+              <label for="resprot">resprot</label>
+              <input type="number" 
+                      id="resprot"
+                      class="form-control"
+                      formControlName="resprot"
+                      [(ngModel)]="calculadoraForm.value.resprot"
+                      disabled
+                      >
+            </div>    
+          </div>
+        </div>
+      </form>
+    </div>
+    <div >
+      <div>
+        <a routerLink="/alimentos" style="text-decoration: none">
+        <div class="rectorange">
+            <i class="fas fa-utensils"></i><p style="font-size: 25; padding-top: 15px"> Alimentos</p>
+        </div>
+        </a>
+      </div>
+      <div>
+        <a routerLink="/antecedentes" style="text-decoration: none">
+        <div class="rectred">
+            <i class="fas fa-user-md"></i><p style="font-size: 25; padding-top: 15px"> Antecedentes</p>
+        </div>
+        </a>
+      </div>
+      <div>
+        <a routerLink="/pacientes" style="text-decoration: none">
+        <div class="rectblue">
+            <i class="fas fa-users"></i><p style="font-size: 25; padding-top: 15px"> Pacientes</p>
+        </div>
+        </a>
+      </div>
+      <div>
+        <a routerLink="/seguimientos" style="text-decoration: none">
+        <div class="rectgreen">
+            <i class="fas fa-history"></i><p style="font-size: 25; padding-top: 15px"> Seguimientos</p>
+        </div>
+        </a>
+      </div>     
+    </div>
+    <div class="col col-md"></div>
+  </div>

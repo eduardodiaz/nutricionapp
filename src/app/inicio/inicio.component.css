@@ -21,3 +21,51 @@ select.ng-valid.ng-dirty {
 .uncheck {
     color: #a94442;
 }
+
+.rectorange{
+    background-color: #ea6112;
+    color:  white;
+    text-align: center;
+    padding: 20px;
+    margin: 20px;
+}
+
+.rectorange:hover{
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.4), 0 6px 20px 
+}
+
+.rectred{
+    background-color: #ed151f;
+    color:  white;
+    text-align: center;
+    padding: 20px;
+    margin: 20px;
+}
+
+.rectred:hover{
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.4), 0 6px 20px 
+}
+
+.rectblue{
+    background-color: #1411dc;
+    color:  white;
+    text-align: center;
+    padding: 20px;
+    margin: 20px;
+}
+
+.rectblue:hover{
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.4), 0 6px 20px 
+}
+
+.rectgreen{
+    background-color: #0dc532;
+    color:  white;
+    text-align: center;
+    padding: 20px;
+    margin: 20px;
+}
+
+.rectgreen:hover{
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.4), 0 6px 20px 
+}
