@@ -9,7 +9,7 @@ import { AutentificacionService } from '../servicios/autentificacion.service';
 })
 export class InicioComponent implements OnInit {
 
-  autentificacionService: any;
+ // autentificacionService: any;
   calculadoraForm: FormGroup;
   peso: any;
   edad: any;
@@ -53,9 +53,9 @@ export class InicioComponent implements OnInit {
 
     }
 
-    isAuth(){
-      return this.autentificacionService.isAutenticated();
-    }
+    // isAuth(){
+    //   return this.autentificacionService.isAutenticated();
+    // }
 
     onChanges(): void {
       this.calculadoraForm.valueChanges.subscribe(valor => {

@@ -28,6 +28,7 @@ import { RegistoComponent } from './autentificacion/registo/registo.component';
 import { AutentificacionService } from './servicios/autentificacion.service';
 import { IniciosesionComponent } from './autentificacion/iniciosesion/iniciosesion.component';
 import { GuardService } from './servicios/guard.service';
+import { TablaalimentosComponent } from './tablaalimentos/tablaalimentos/tablaalimentos.component';
 
 const routes: Routes = [
   { path: '', component: InicioComponent },
@@ -43,6 +44,7 @@ const routes: Routes = [
   { path: 'seguimientos', component: SeguimientosComponent, canActivate: [GuardService] },
   { path: 'addseguimientos', component: AddseguimientosComponent, canActivate: [GuardService] },
   { path: 'editseguimientos/:id', component: EditseguimientosComponent, canActivate: [GuardService] },
+  { path: 'tablaalimentos', component: TablaalimentosComponent, canActivate: [GuardService] },
   { path: 'registro', component: RegistoComponent },
   { path: 'iniciosesion', component: IniciosesionComponent },
   { path: '**', component: InicioComponent }
@@ -68,7 +70,8 @@ const routes: Routes = [
     AddseguimientosComponent,
     EditseguimientosComponent,
     RegistoComponent,
-    IniciosesionComponent
+    IniciosesionComponent,
+    TablaalimentosComponent
     ],
   imports: [
     BrowserModule,

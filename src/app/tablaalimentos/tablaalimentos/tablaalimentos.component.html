@@ -1,0 +1,163 @@
+<h2>Tabla alimentos</h2>
+ <form [formGroup]="calculadoraForm">
+
+<div class="form-group">
+<table class="table table-hover table-sm">
+    <thead>
+      <tr>
+        <th scope="col">Grupo</th>
+        <th scope="col">Porcion</th>
+        <th scope="col">Proteinas</th>
+        <th scope="col">Lipidos</th>
+        <th scope="col">HCO</th>
+        <th scope="col">E°</th>
+    </thead>
+    <tbody>
+      <tr>
+        <th scope="row">Verduras</th>
+        <td><input type="number" id="verduras" class="form-control" formControlName="verduras"></td>
+        <td><input type="number" class="form-control" id="verduraspro" formControlName="verduraspro" [(ngModel)]="calculadoraForm.value.verduraspro" disabled></td>
+        <td><input type="number" class="form-control" placeholder="---" disabled></td>
+        <td><input type="number" class="form-control" id="verdurashco" formControlName="verdurashco" [(ngModel)]="calculadoraForm.value.verdurashco" disabled></td>
+        <td><input type="number" class="form-control" id="verdurase" formControlName="verdurase" [(ngModel)]="calculadoraForm.value.verdurase" disabled></td>  
+      </tr>
+      <tr>
+        <th scope="row">Frutas</th>
+        <td><input type="number" id="frutas" class="form-control" formControlName="frutas"></td>
+        <td><input type="number" class="form-control" placeholder="---" disabled></td>
+        <td><input type="number" class="form-control" placeholder="---" disabled></td>
+        <td><input type="number" class="form-control" id="frutashco" formControlName="frutashco" [(ngModel)]="calculadoraForm.value.frutashco" disabled></td>
+        <td><input type="number" class="form-control" id="frutase" formControlName="frutase" [(ngModel)]="calculadoraForm.value.frutase"disabled></td>
+      </tr>
+      <tr>
+        <th scope="row">Cereales s/grasa</th>
+        <td><input type="number" id="cerealessg" class="form-control" formControlName="cerealessg" ></td>
+        <td><input type="number" class="form-control" id="cerealessgpro" formControlName="cerealessgpro" [(ngModel)]="calculadoraForm.value.cerealessgpro" disabled></td>
+        <td><input type="number" class="form-control" placeholder="---" disabled></td>
+        <td><input type="number" class="form-control" id="cerealessghco" formControlName="cerealessghco" [(ngModel)]="calculadoraForm.value.cerealessghco"disabled></td>
+        <td><input type="number" class="form-control" id="cerealessge" formControlName="cerealessge" [(ngModel)]="calculadoraForm.value.cerealessge" disabled></td>
+      </tr>
+      <tr>
+        <th scope="row">Cereales s/grasa</th>
+        <td><input type="number" id="cerealescg" class="form-control" formControlName="cerealescg" ></td>
+        <td><input type="number" class="form-control" id="cerealescgpro" formControlName="cerealescgpro" [(ngModel)]="calculadoraForm.value.cerealescgpro" disabled></td>
+        <td><input type="number" class="form-control" id="cerealescglip" formControlName="cerealescglip" [(ngModel)]="calculadoraForm.value.cerealescglip"placeholder="---" disabled></td>
+        <td><input type="number" class="form-control" id="cerealescghco" formControlName="cerealescghco" [(ngModel)]="calculadoraForm.value.cerealescghco"disabled></td>
+        <td><input type="number" class="form-control" id="cerealescge" formControlName="cerealescge" [(ngModel)]="calculadoraForm.value.cerealescge" disabled></td>
+      </tr>
+      <tr>
+        <th scope="row">Leguminosas</th>
+        <td><input type="number" class="form-control"></td>
+        <td><input type="number" class="form-control" disabled></td>
+        <td><input type="number" class="form-control" disabled></td>
+        <td><input type="number" class="form-control" disabled></td>
+        <td><input type="number" class="form-control" disabled></td>
+      </tr>
+      <tr>
+        <th scope="row">Alimentos mbg</th>
+        <td><input type="number" class="form-control"></td>
+        <td><input type="number" class="form-control" disabled></td>
+        <td><input type="number" class="form-control" disabled></td>
+        <td><input type="number" class="form-control" placeholder="---" disabled></td>
+        <td><input type="number" class="form-control" disabled></td>
+      </tr>
+      <tr>
+        <th scope="row">Alimenos bg</th>
+        <td><input type="number" class="form-control"></td>
+        <td><input type="number" class="form-control" disabled></td>
+        <td><input type="number" class="form-control" disabled></td>
+        <td><input type="number" class="form-control" placeholder="---" disabled></td>
+        <td><input type="number" class="form-control" disabled></td>
+      </tr>
+      <tr>
+        <th scope="row">Alimenos g</th>
+        <td><input type="number" class="form-control"></td>
+        <td><input type="number" class="form-control" disabled></td>
+        <td><input type="number" class="form-control" disabled></td>
+        <td><input type="number" class="form-control" placeholder="---" disabled></td>
+        <td><input type="number" class="form-control" disabled></td>
+      </tr>
+      <tr>
+        <th scope="row">Alimentos ag</th>
+        <td><input type="number" class="form-control"></td>
+        <td><input type="number" class="form-control" disabled></td>
+        <td><input type="number" class="form-control" disabled></td>
+        <td><input type="number" class="form-control" disabled></td>
+        <td><input type="number" class="form-control" disabled></td>
+      </tr>
+      <tr>
+        <th scope="row">Leche descremada</th>
+        <td><input type="number" class="form-control"></td>
+        <td><input type="number" class="form-control" disabled></td>
+        <td><input type="number" class="form-control" disabled></td>
+        <td><input type="number" class="form-control" placeholder="---" disabled></td>
+        <td><input type="number" class="form-control" disabled></td>
+      </tr>
+      <tr>
+        <th scope="row">Leche semidescremada</th>
+        <td><input type="number" class="form-control"></td>
+        <td><input type="number" class="form-control" disabled></td>
+        <td><input type="number" class="form-control" disabled></td>
+        <td><input type="number" class="form-control" disabled></td>
+        <td><input type="number" class="form-control" disabled></td>
+      </tr>
+      <tr>
+        <th scope="row">Leche entera</th>
+        <td><input type="number" class="form-control"></td>
+        <td><input type="number" class="form-control" disabled></td>
+        <td><input type="number" class="form-control" disabled></td>
+        <td><input type="number" class="form-control" disabled></td>
+        <td><input type="number" class="form-control" disabled></td>
+      </tr>
+      <tr>
+        <th scope="row">Leche c/azucar</th>
+        <td><input type="number" class="form-control"></td>
+        <td><input type="number" class="form-control" disabled></td>
+        <td><input type="number" class="form-control" disabled></td>
+        <td><input type="number" class="form-control" disabled></td>
+        <td><input type="number" class="form-control" disabled></td>
+      </tr>
+      <tr>
+        <th scope="row">Aceygrasas s/proteinas</th>
+        <td><input type="number" class="form-control"></td>
+        <td><input type="number" class="form-control" placeholder="---" disabled></td>
+        <td><input type="number" class="form-control" disabled></td>
+        <td><input type="number" class="form-control" placeholder="---" disabled></td>
+        <td><input type="number" class="form-control" disabled></td>
+      </tr>
+      <tr>
+        <th scope="row">Aceygrasas c/proteinas</th>
+        <td><input type="number" class="form-control"></td>
+        <td><input type="number" class="form-control" disabled></td>
+        <td><input type="number" class="form-control" disabled></td>
+        <td><input type="number" class="form-control" disabled></td>
+        <td><input type="number" class="form-control" disabled></td>
+      </tr>
+      <tr>
+        <th scope="row">Azucar s/grasa</th>
+        <td><input type="number" class="form-control"></td>
+        <td><input type="number" class="form-control" placeholder="---" disabled></td>
+        <td><input type="number" class="form-control" placeholder="---" disabled></td>
+        <td><input type="number" class="form-control" disabled></td>
+        <td><input type="number" class="form-control" disabled></td>
+      </tr>
+      <tr>
+        <th scope="row">Azucar c/grasa</th>
+        <td><input type="number" class="form-control"></td>
+        <td><input type="number" class="form-control" placeholder="---" disabled></td>
+        <td><input type="number" class="form-control" disabled></td>
+        <td><input type="number" class="form-control" disabled></td>
+        <td><input type="number" class="form-control" disabled></td>
+      </tr>
+      <tr>
+        <th scope="row">Totales</th>
+        <td><input type="number" class="form-control" disabled></td>
+        <td><input type="number" class="form-control" disabled></td>
+        <td><input type="number" class="form-control" disabled></td>
+        <td><input type="number" class="form-control" disabled></td>
+      </tr>
+
+    </tbody>
+  </table>
+</div>
+</form>
