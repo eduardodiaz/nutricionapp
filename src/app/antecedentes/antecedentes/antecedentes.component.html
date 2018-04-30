@@ -1,11 +1,20 @@
 <h3>Listado de antecedentes</h3>
+<!-- Boton que manda a la pantalla de agregar nuevo antecedente-->
+
 <a class="btn btn-primary float-md-right" routerLink="/addantecedentes">Añadir nuevo antecedentes <i class="fas fa-user-md"></i></a>
-<input type="search" class="form-control" placeholder="Teclee tipo de usuario...."
+<!--input que permite realizar una busqueda por medio algun atributo en especifico-->
+
+<input type="search" class="form-control" placeholder="Teclee nombre del paciente...."
       [formControl]="campoBusqueda">
+
+<!--Elemento que se muestra cuando se realiza una busqueda y esta tarda en aparecer-->
+
 <div *ngIf="cargando" class="text-center" style="padding-top: 60px">
   <img src="../../../assets/cargando.gif" alt="cargando">
 </div>
 <br>
+<!--Tabla que se muestra cuando resultados si existen-->
+
 <div *ngIf="resultados">
 <table class="table table-bordered table-hover table-sm" style="margin-top: 60px">
   <thead>
@@ -34,6 +43,8 @@
     <td>{{ antecedente.cena  + " " + antecedente.hrcena  }}</td>
     <td>{{ antecedente.entrecomidas  + " " + antecedente.hrentrecomidas  }}</td>
     <td>
+ <!--Boton que permite editar algun antecedente-->
+
       <button type="button" class="btn btn-success"
       routerLink="/editantecedentes/{{ antecedente.id$ }}"
       >
@@ -41,6 +52,8 @@
       </button>
     </td>
     <td>
+      <!--Boton que permite eliminar algun alimento de la lista-->
+
       <button type="button" class="btn btn-danger"
               (click)="eliminarAntecedente(antecedente.id$)"
               >
@@ -51,6 +64,7 @@
   </tbody>
 </table>
 </div>
+<!--Etiqueda que aparece cuando no existen coincidencias-->
 
 <div *ngIf="noresultados">
   <p class="alert alert-danger">no existen coincidencias</p>

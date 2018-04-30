@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { AlimentosService } from '../../servicios/alimentos.service';
+/*Impotaciones para usar los formularios, validaciones y el servicio */
 
 
 @Component({
@@ -10,11 +11,15 @@ import { AlimentosService } from '../../servicios/alimentos.service';
 })
 export class AddalimentosComponent implements OnInit {
 
-  alimentoForm: FormGroup;
-  alimento: any;
+  alimentoForm: FormGroup; /*Nombre del formGroup del html */
+  alimento: any; /*Nombre de el objeto donde se registraran los datos */
+
+  /*Constructor donde se crean los metodos de la clase */
 
   constructor(private pf: FormBuilder,
               private alimentoService: AlimentosService) { }
+
+  /* Metodo donde se inicializan los componentes de la clase */
 
   ngOnInit() {
     this.alimentoForm = this.pf.group({
@@ -25,6 +30,8 @@ export class AddalimentosComponent implements OnInit {
     });
   }
 
+  /*Metodo onSubmit que se desencadena cuando se ocurre dicho metodo y ejecuta las acciones que estan dentro de él */
+
   onSubmit(){
     this.alimento = this.saveAlimento();
     this.alimentoService.postAlimentos(this.alimento)
@@ -33,6 +40,8 @@ export class AddalimentosComponent implements OnInit {
       })
       this.alimentoForm.reset();
   }
+
+    /*Metodo que almacena los datos del objeto que es llamado por onSubmit */
 
   saveAlimento(){
     const saveAlimento = {

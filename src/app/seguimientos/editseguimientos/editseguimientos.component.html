@@ -2,16 +2,19 @@
     <div class="co col-md"></div>
     <div class="col-10 col-md-8">
       <h2>Editar seguimiento</h2>
+      <!-- Boton para regresar del editseguimientos a seguimoentos -->
       <a class="btn btn-warning float-md-right" routerLink="/seguimientos">Regresar</a>
+      <!-- Nombre del formGroup a donde se asignan los componentes y que se accionara en el evento onSubmit -->
       <form [formGroup]="seguimientoForm" (ngSubmit)="onSubmit()">
-        <div class="form-group">
-          <label for="nombre">Nombre</label>
+        <div class="form-group"> <!-- Group del componente -->
+          <label for="nombre">Nombre</label> <!-- Nombre de la etiqueta -->
           <input type="text"
                   class="form-control"
                   id="nombre"
                   formControlName="nombre"
                   [(ngModel)]="seguimiento.nombre"
-                  disabled>
+                  disabled> <!-- Elementos del componente, uso de ngModel que permite mostrar informacion que ha sido traida desde la base de datos mediante su id -->
+  <!-- Validacion del componenten si ha sido invalidado y tocado -->        
           <p class="alert alert-danger"
               *ngIf="seguimientoForm.controls.nombre.invalid &&
                     seguimientoForm.controls.nombre.touched">
@@ -135,11 +138,15 @@
             El campo P art es obligatorio.          
           </p>
         </div>
+          <!-- Boton que ejecuta el submit de los datos , guarda los cambios-->
         <button type="submit"
                   class="btn btn-primary"
                   >
           Guardar Cambios        
         </button>
+
+                <!-- Boton de regreso  -->
+
         <a class="btn btn-danger" routerLink="/seguimientos">Cancelar</a>
 
       </form>

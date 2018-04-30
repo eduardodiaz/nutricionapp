@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { AutentificacionService } from '../servicios/autentificacion.service';
+/*Impotaciones para usar los formularios, validaciones y el servicio */
 
 @Component({
   selector: 'app-inicio',
@@ -9,8 +10,10 @@ import { AutentificacionService } from '../servicios/autentificacion.service';
 })
 export class InicioComponent implements OnInit {
 
- // autentificacionService: any;
-  calculadoraForm: FormGroup;
+
+  calculadoraForm: FormGroup;  /*Nombre del formGroup del html */
+
+    //variables utilizadas en los elementos inicializadas segun el standar
   peso: any;
   edad: any;
   talla: any; 
@@ -28,9 +31,12 @@ export class InicioComponent implements OnInit {
   reslip: any = 0;
   resprot: any = 0;
 
+
+    //inicializacion en el constructor 
   constructor(private pf: FormBuilder,
     autentificacionService: AutentificacionService) { }
 
+    //inicializacion, validacion de las variables
   ngOnInit() {
     this.calculadoraForm = this.pf.group({
       nombre: ['', Validators.required ],
@@ -53,9 +59,7 @@ export class InicioComponent implements OnInit {
 
     }
 
-    // isAuth(){
-    //   return this.autentificacionService.isAutenticated();
-    // }
+    //registra los cambios en los elementos del html, realiza las operaciones en tiempo real
 
     onChanges(): void {
       this.calculadoraForm.valueChanges.subscribe(valor => {

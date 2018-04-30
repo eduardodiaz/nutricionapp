@@ -1,17 +1,20 @@
 <h3>Listado de alimentos</h3>
+<!-- Boton que manda a la pantalla de agregar nuevo alimento-->
+
 <a class="btn btn-primary float-md-right" routerLink="/addalimento">Añadir nuevo alimento <i class="fas fa-utensils"></i></a>
 
-<!-- <input type="search"
-       class="form-control"
-       placeholder="Teclee tipo de alimento"
-      [formControl]="campoBusqueda"> -->
+<!--input que permite realizar una busqueda por medio algun atributo en especifico-->
+
   <input type="search" class="form-control" placeholder="Teclee alimento"
   [formControl]="campoBusqueda">
 
+  <!--Elemento que se muestra cuando se realiza una busqueda y esta tarda en aparecer-->
 <div *ngIf="cargando" class="text-center" style="padding-top: 60px">
   <img src="../../../assets/cargando.gif" alt="cargando">
 </div>
 <br>
+<!--Tabla que se muestra cuando resultados si existen-->
+
 <div *ngIf="resultados">
 <table class="table table-bordered table-hover table-sm" style="margin-top: 40px">
   <thead>
@@ -32,12 +35,16 @@
       <td>{{ alimento.pesobruto }}</td>
       <td>{{ alimento.tipo }}</td>
       <td>
+      <!--Boton que permite editar algun alimento-->
+
         <button type="button" class="btn btn-success"
                 routerLink="/editalimento/{{ alimento.id$ }}">
           <i class="fas fa-pencil-alt"></i>
         </button>
       </td>
       <td>
+        <!--Boton que permite eliminar algun alimento de la lista-->
+
         <button type="button" class="btn btn-danger"
                 (click)="eliminarAlimento(alimento.id$)">
           <i class="fas fa-trash-alt"></i>
@@ -47,6 +54,9 @@
   </tbody>
 </table>
 </div>
+
+<!--Etiqueda que aparece cuando no existen coincidencias-->
+
 <div *ngIf="noresultados">
   <p class="alert alert-danger">no existen coincidencias</p>
 </div>

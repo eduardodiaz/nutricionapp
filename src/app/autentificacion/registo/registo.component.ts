@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { AutentificacionService } from '../../servicios/autentificacion.service';
 import { Router, ActivatedRoute } from '@angular/router';
+/*Impotaciones para usar los formularios, validaciones, enrutado y el servicio */
 
 
 @Component({
@@ -11,14 +12,18 @@ import { Router, ActivatedRoute } from '@angular/router';
 })
 export class RegistoComponent implements OnInit {
 
-  registroForm: FormGroup;
-  userdata: any;
-
+  registroForm: FormGroup; /*Nombre del formGroup del html */
+  userdata: any; /*Nombre de el objeto donde se registraran los datos */
+  
+  
+  //documento donde aparecen los elementos del formulario
   erroresForm ={
     'email': '',
     'password': ''
   }
 
+
+  //validaciones que se mostraran en los elementos del formulario
   mensajeValidacion ={
     'email': {
       'required': 'Email obligatorio',
@@ -32,12 +37,16 @@ export class RegistoComponent implements OnInit {
     }
   }
 
+
+    /*constructor donde se inicializa AutenficacionService, y los metodos de enrutado  */
   constructor(private formBuilder: FormBuilder,
               private autentificacionService: AutentificacionService,
               private router: Router,
               private activatedRouter: ActivatedRoute) { }
 
-  ngOnInit() {
+//metodo que se ejecuta del componente html, verifica los datos de registro haciendo uso de AutentificacionService
+  //si no esta registrado o los datos son incorrectos, mostrara un mensaje 
+ngOnInit() {
     this.registroForm = this.formBuilder.group({
       'email': ['', [Validators.required, Validators.email ] ],
       'password': ['', [Validators.required, 
@@ -50,13 +59,20 @@ export class RegistoComponent implements OnInit {
     this.onValueChanged();
   }
 
+
+//metodo que se ejecuta del componente html, verifica los datos de registro haciendo uso de AutentificacionService
+  //si no esta registrado o los datos son incorrectos, mostrara un mensaje 
+  //si estan correctos los datos de autenticacion, mandara al inicio de la app
   onSubmit(){
     this.userdata = this.saveUserdata();
     this.autentificacionService.registroUsuario(this.userdata);
     this.router.navigate(['/inicio']);
   }
 
-  saveUserdata(){
+
+    //metodo donde registran los datos del formulario
+
+saveUserdata(){
     const saveUserdata = {
       email: this.registroForm.get('email').value,
       password: this.registroForm.get('password').value
@@ -64,6 +80,9 @@ export class RegistoComponent implements OnInit {
 
     return saveUserdata;
   }
+
+
+  //muestra las validaciones en caso de que se presenten
 
   onValueChanged(data?: any) {
     if (!this.registroForm) { return; }

@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { AntecedentesService } from '../../servicios/antecedentes.service';
+/*Impotaciones para usar los formularios, validaciones y el servicio */
 
 
 @Component({
@@ -10,11 +11,15 @@ import { AntecedentesService } from '../../servicios/antecedentes.service';
 })
 export class AddantecedentesComponent implements OnInit {
 
-  antecedenteForm: FormGroup;
-  antecedente: any;
+  antecedenteForm: FormGroup; /*Nombre del formGroup del html */
+  antecedente: any;  /*Nombre de el objeto donde se registraran los datos */
+
+    /*Constructor donde se crean los metodos de la clase */
 
   constructor(private pf: FormBuilder,
               private antecedenteService: AntecedentesService) { }
+
+ /* Metodo donde se inicializan los componentes de la clase */
 
   ngOnInit() {
     this.antecedenteForm = this.pf.group({
@@ -34,6 +39,9 @@ export class AddantecedentesComponent implements OnInit {
     });
   }
 
+
+      /*Metodo onSubmit que se desencadena cuando se ocurre dicho metodo y ejecuta las acciones que estan dentro de él */
+
   onSubmit(){
     this.antecedente = this.saveAntecedente();
     this.antecedenteService.postAntecedentes(this.antecedente)
@@ -42,6 +50,9 @@ export class AddantecedentesComponent implements OnInit {
       })
       this.antecedenteForm.reset();
   }
+
+
+      /*Metodo que almacena los datos del objeto que es llamado por onSubmit */
 
   saveAntecedente(){
     const saveAntecedente = {

@@ -2,16 +2,20 @@
     <div class="col col-md"></div>
     <div class="col-10 col-md-8">
       <h2>Editar paciente</h2>
+        <!-- Boton para regresar del editpacientes a pacientes -->
       <a class="btn btn-warning float-md-right" routerLink="/pacientes">Regresar</a>
-  
+    <!-- Nombre del formGroup a donde se asignan los componentes y que se accionara en el evento onSubmit -->
       <form [formGroup]="pacienteForm" (ngSubmit)="onSubmit()">
+        <!-- Group del componente -->
         <div class="form-group">
+          <!-- Nombre de la etiqueta -->
           <label for="paciente">Paciente</label>
           <input type="text"
                   class="form-control"
                   id="paciente"
                   formControlName="paciente"
-                  [(ngModel)]="paciente.paciente">
+                  [(ngModel)]="paciente.paciente"> <!-- Elementos del componente, uso de ngModel que permite mostrar informacion que ha sido traida desde la base de datos mediante su id -->
+  <!-- Validacion del componenten si ha sido invalidado y tocado -->        
           <p class="alert alert-danger"
               *ngIf="pacienteForm.controls.paciente.invalid &&
                       pacienteForm.controls.paciente.touched">
@@ -33,6 +37,7 @@
         </div>
         <div class="form-group">
           <label for="sexo">Sexo</label>
+          <!-- Componente tipo select con las opciones -->
           <select class="form-control"
               id="tipo"
               formControlName="sexo"
@@ -112,11 +117,14 @@
             El campo Motivo Consulta es obligatorio.          
           </p>
         </div>
+      <!-- Boton que ejecuta el submit de los datos, guarda los cambios -->
         <button type="submit"
                 class="btn btn-primary"
                 >
           Guardar Cambios      
         </button>
+                <!-- Boton de regreso  -->
+
         <a class="btn btn-danger" routerLink="/pacientes">Cancelar</a>
         
       </form>

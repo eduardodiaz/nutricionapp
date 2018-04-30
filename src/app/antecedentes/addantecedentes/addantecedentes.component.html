@@ -2,14 +2,17 @@
   <div class="col col-md"></div>
   <div class="col-10 col-md-8">
     <h2>Añadir nuevo antecedente</h2>
+    <!-- Boton para regresar del addalimentos a alimentos -->
     <a class="btn btn-warning float-md-right" routerLink="/antecedentes">Regresar</a>
-    <form [formGroup]="antecedenteForm" (ngSubmit)="onSubmit()">
-      <div class="form-group">
+    <!-- Nombre del formGroup a donde se asignan los componentes y que se accionara en el evento onSubmit -->
+    <form [formGroup]="antecedenteForm" (ngSubmit)="onSubmit()"> <!-- Group del componente -->
+      <div class="form-group"> <!-- Nombre de la etiqueta -->
         <label for="nombre">Nombre</label>
         <input type="text" 
                 class="form-control"
                 id="nombre"
-                formControlName="nombre">
+                formControlName="nombre"> <!-- Elementos del componente -->
+          <!-- Validacion del componenten si ha sido invalidado y tocado -->
           <p class="alert alert-danger"
             *ngIf="antecedenteForm.controls.nombre.invalid && 
                   antecedenteForm.controls.nombre.touched">
@@ -30,12 +33,12 @@
       </div>
       <div class="form-group">
         <label for="sintomas">Sintomas</label>
+        <!--Muestra las ayudas -->
         <button type="button" 
-                class="btn btn-info float-md-right" 
-                data-title="Sintomas"
-                data-toggle="popover" 
-                data-placement="right" 
-                data-content="Diarrea, Estreñimiento,	Gastritis,
+                class="btn btn-dark float-md-right" 
+                data-toggle="tooltip" 
+                data-placement="top" 
+                title="Diarrea, Estreñimiento, Gastritis,
                 Úlceras, Naúseas, Pirosis,	Vómito,	Cólitis,
                 Fatiga,	Dolor cabeza,	Dolor pies,	Dolor huesos,	Dolor artic.,	
                 Dolor de esp.,	Reflujo, Otros"><i class="fas fa-info-circle"></i>
@@ -69,7 +72,7 @@
                 class="btn btn-dark float-md-right" 
                 data-toggle="tooltip" 
                 data-placement="top" 
-                title="Obesidad	Diabetas	HTA	Cáncer	Hipercol	Hipertrig	Otro:"                 
+                title="Obesidad, Diabetas, HTA, Cáncer, Hipercol, Hipertrig, Otro"                 
         >
         <i class="fas fa-info-circle"></i>
         </button>
@@ -188,12 +191,15 @@
         </div>
       </div>
     </div>
+    <!-- Boton que ejecuta el submit de los datos, aparece descativado si el formulario esta invalidado -->
     <button type="submit" 
               class="btn btn-primary"
               [disabled]="!antecedenteForm.valid">
         Añadir Antecedente
       </button>
+       <!-- Boton de regreso  -->
       <a class="btn btn-danger" routerLink="/antecedentes">Cancelar</a>
+      <!-- Etiqueda que nos dice que tenemos que llenar todos los campos del formulario -->
       <p class="alert alert-danger" 
           *ngIf="!antecedenteForm.valid">
         Favor de llenar todos los campos obligatorios.  

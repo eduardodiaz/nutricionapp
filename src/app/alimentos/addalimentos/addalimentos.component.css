@@ -1,3 +1,5 @@
+/* clases de ccs para la validacion de los elementos del componente */
+
 input.ng-invalid.ng-touched {
     border-left: 5px solid #a94442;
 }

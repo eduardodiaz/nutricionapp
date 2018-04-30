@@ -1,4 +1,5 @@
 <nav class="navbar navbar-light bg-faded rounded navbar-toggleable-md">
+        <!--boton que se muestra en caso de que la pantalla del dispositivo se haga pequeña y no quepan los elemetos del menu-->
   <button class="navbar-toggler navbar-toggler-right" 
     type="button" data-toggle="collapse" data-target="#containerNavbar" 
     aria-controls="containerNavbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -6,6 +7,7 @@
   </button>
   <a class="navbar-brand" href="#">Nutricion App</a>
   <div class="collapse navbar-collapse" id="containerNavbar">
+            <!--Elementos del navbar-->
     <ul class="navbar-nav mr-auto w-100 justify-content-end">
       <li class="nav-item" routerLinkActive="active"   
           [routerLinkActiveOptions]="{exact:true}"
@@ -35,13 +37,16 @@
       <li class="nav-item" routerLinkActive="active"
           [routerLinkActiveOptions]="{exact:true}"
           *ngIf="isAuth()">
-          <a class="nav-link" routerLink="/tablaalimentos">tablaalimentos</a>
+          <a class="nav-link" routerLink="/tablaalimentos">Tabla Alimentos</a>
       </li>
+      <!--elemento del menu que permite dirgirnos a iniciar sesion-->
       <li class="nav-item" routerLinkActive="active"
           [routerLinkActiveOptions]="{exact:true}"
           *ngIf="!isAuth()">
           <button class="btn btn-success" routerLink="/iniciosesion">Login</button>
       </li>
+
+            <!--boton que permite cerrar sesion-->
       <li class="nav-item" routerLinkActive="active"
           [routerLinkActiveOptions]="{exact:true}"
           *ngIf="isAuth()">

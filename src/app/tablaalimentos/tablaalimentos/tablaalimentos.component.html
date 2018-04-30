@@ -1,10 +1,11 @@
 <h2>Tabla alimentos</h2>
+<!--nombre del form-->
  <form [formGroup]="calculadoraForm">
-
 <div class="form-group">
 <table class="table table-hover table-sm">
     <thead>
       <tr>
+        <!--Encabezados de la tabla-->
         <th scope="col">Grupo</th>
         <th scope="col">Porcion</th>
         <th scope="col">Proteinas</th>
@@ -14,8 +15,9 @@
     </thead>
     <tbody>
       <tr>
-        <th scope="row">Verduras</th>
-        <td><input type="number" id="verduras" class="form-control" formControlName="verduras"></td>
+        <th scope="row">Verduras</th> <!--Nombre del renglon-->
+        <td><input type="number" id="verduras" class="form-control" formControlName="verduras"></td><!--input donde se agregan los datos-->
+        <!--Elementos donde se muestran los calculos de las operaciones-->
         <td><input type="number" class="form-control" id="verduraspro" formControlName="verduraspro" [(ngModel)]="calculadoraForm.value.verduraspro" disabled></td>
         <td><input type="number" class="form-control" placeholder="---" disabled></td>
         <td><input type="number" class="form-control" id="verdurashco" formControlName="verdurashco" [(ngModel)]="calculadoraForm.value.verdurashco" disabled></td>
@@ -38,7 +40,7 @@
         <td><input type="number" class="form-control" id="cerealessge" formControlName="cerealessge" [(ngModel)]="calculadoraForm.value.cerealessge" disabled></td>
       </tr>
       <tr>
-        <th scope="row">Cereales s/grasa</th>
+        <th scope="row">Cereales c/grasa</th>
         <td><input type="number" id="cerealescg" class="form-control" formControlName="cerealescg" ></td>
         <td><input type="number" class="form-control" id="cerealescgpro" formControlName="cerealescgpro" [(ngModel)]="calculadoraForm.value.cerealescgpro" disabled></td>
         <td><input type="number" class="form-control" id="cerealescglip" formControlName="cerealescglip" [(ngModel)]="calculadoraForm.value.cerealescglip"placeholder="---" disabled></td>
@@ -47,116 +49,138 @@
       </tr>
       <tr>
         <th scope="row">Leguminosas</th>
-        <td><input type="number" class="form-control"></td>
-        <td><input type="number" class="form-control" disabled></td>
-        <td><input type="number" class="form-control" disabled></td>
-        <td><input type="number" class="form-control" disabled></td>
-        <td><input type="number" class="form-control" disabled></td>
+        <td><input type="number" id="leguminosas" class="form-control" formControlName="leguminosas"></td>
+        <td><input type="number" class="form-control" id="leguminasaspro" formControlName="leguminasaspro" [(ngModel)]="calculadoraForm.value.leguminasaspro" disabled></td>
+        <td><input type="number" class="form-control" id="leguminosaslip" formControlName="leguminosaslip" [(ngModel)]="calculadoraForm.value.leguminosaslip"disabled></td>
+        <td><input type="number" class="form-control" class="form-control" id="leguminosashco" formControlName="leguminosashco" [(ngModel)]="calculadoraForm.value.leguminosashco" disabled></td>
+        <td><input type="number" class="form-control" id="leguminosase" formControlName="leguminosase" [(ngModel)]="calculadoraForm.value.leguminosase"disabled></td>
       </tr>
       <tr>
         <th scope="row">Alimentos mbg</th>
-        <td><input type="number" class="form-control"></td>
-        <td><input type="number" class="form-control" disabled></td>
-        <td><input type="number" class="form-control" disabled></td>
-        <td><input type="number" class="form-control" placeholder="---" disabled></td>
-        <td><input type="number" class="form-control" disabled></td>
+        <td><input type="number" id="alimentosmbg" class="form-control" formControlName="alimentosmbg"></td>
+        <td><input type="number"class="form-control" id="alimentosmbgpro" formControlName="alimentosmbgpro" [(ngModel)]="calculadoraForm.value.alimentosmbgpro" disabled></td>
+        <td><input type="number"class="form-control" id="alimentosmgblip" formControlName="alimentosmgblip" [(ngModel)]="calculadoraForm.value.alimentosmgblip" disabled></td>
+        <td><input type="number"class="form-control" placeholder="---" disabled></td>
+        <td><input type="number"class="form-control" id="alimentosmgbe" formControlName="alimentosmgbe" [(ngModel)]="calculadoraForm.value.alimentosmgbe" disabled></td>
       </tr>
       <tr>
         <th scope="row">Alimenos bg</th>
-        <td><input type="number" class="form-control"></td>
-        <td><input type="number" class="form-control" disabled></td>
-        <td><input type="number" class="form-control" disabled></td>
+        <td><input type="number" id="alimentosbg" class="form-control" formControlName="alimentosbg"></td>
+        <td><input type="number" class="form-control" id="alimentosbgpro" formControlName="alimentosbgpro" [(ngModel)]="calculadoraForm.value.alimentosbgpro" disabled></td>
+        <td><input type="number" class="form-control" id="alimentosgblip" formControlName="alimentosgblip" [(ngModel)]="calculadoraForm.value.alimentosgblip"disabled></td>
         <td><input type="number" class="form-control" placeholder="---" disabled></td>
-        <td><input type="number" class="form-control" disabled></td>
+        <td><input type="number" class="form-control" id="alimentosgbe" formControlName="alimentosgbe" [(ngModel)]="calculadoraForm.value.alimentosgbe" disabled></td>
       </tr>
       <tr>
         <th scope="row">Alimenos g</th>
-        <td><input type="number" class="form-control"></td>
-        <td><input type="number" class="form-control" disabled></td>
-        <td><input type="number" class="form-control" disabled></td>
+        <td><input type="number" id="alimentosg" class="form-control" formControlName="alimentosg"></td>
+        <td><input type="number" class="form-control" id="alimentosbpro" formControlName="alimentosbpro" [(ngModel)]="calculadoraForm.value.alimentosbpro" disabled></td>
+        <td><input type="number" class="form-control" id="alimentosglip" formControlName="alimentosglip" [(ngModel)]="calculadoraForm.value.alimentosglip" disabled></td>
         <td><input type="number" class="form-control" placeholder="---" disabled></td>
-        <td><input type="number" class="form-control" disabled></td>
+        <td><input type="number" class="form-control" id="alimentosge" formControlName="alimentosge" [(ngModel)]="calculadoraForm.value.alimentosge" disabled></td>
       </tr>
       <tr>
         <th scope="row">Alimentos ag</th>
-        <td><input type="number" class="form-control"></td>
-        <td><input type="number" class="form-control" disabled></td>
-        <td><input type="number" class="form-control" disabled></td>
-        <td><input type="number" class="form-control" disabled></td>
-        <td><input type="number" class="form-control" disabled></td>
+        <td><input type="number" id="alimentosag" class="form-control" formControlName="alimentosag"></td>
+        <td><input type="number" class="form-control" id="alimentosagpro" formControlName="alimentosagpro" [(ngModel)]="calculadoraForm.value.alimentosagpro" disabled></td>
+        <td><input type="number" class="form-control" id="alimentosablip" formControlName="alimentosablip" [(ngModel)]="calculadoraForm.value.alimentosablip" disabled></td>
+        <td><input type="number" class="form-control" placeholder="---" disabled></td>
+        <td><input type="number" class="form-control" id="alimentosage" formControlName="alimentosage" [(ngModel)]="calculadoraForm.value.alimentosage" disabled></td>
       </tr>
       <tr>
         <th scope="row">Leche descremada</th>
-        <td><input type="number" class="form-control"></td>
-        <td><input type="number" class="form-control" disabled></td>
-        <td><input type="number" class="form-control" disabled></td>
-        <td><input type="number" class="form-control" placeholder="---" disabled></td>
-        <td><input type="number" class="form-control" disabled></td>
+        <td><input type="number" id="lechedes" class="form-control" formControlName="lechedes"></td>
+        <td><input type="number" class="form-control" id="lechedespro" formControlName="lechedespro" [(ngModel)]="calculadoraForm.value.lechedespro" disabled></td>
+        <td><input type="number" class="form-control" id="lechedeslip" formControlName="lechedeslip" [(ngModel)]="calculadoraForm.value.lechedeslip" disabled></td>
+        <td><input type="number" class="form-control" id="lechedeshco" formControlName="lechedeshco" [(ngModel)]="calculadoraForm.value.lechedeshco" placeholder="---" disabled></td>
+        <td><input type="number" class="form-control" id="lechedese" formControlName="lechedese" [(ngModel)]="calculadoraForm.value.lechedese" disabled></td>
       </tr>
       <tr>
         <th scope="row">Leche semidescremada</th>
-        <td><input type="number" class="form-control"></td>
-        <td><input type="number" class="form-control" disabled></td>
-        <td><input type="number" class="form-control" disabled></td>
-        <td><input type="number" class="form-control" disabled></td>
-        <td><input type="number" class="form-control" disabled></td>
+        <td><input type="number" id="lechesemides" class="form-control" formControlName="lechesemides"></td>
+        <td><input type="number" class="form-control" id="lechesemidespro" formControlName="lechesemidespro" [(ngModel)]="calculadoraForm.value.lechesemidespro" disabled></td>
+        <td><input type="number" class="form-control" id="lechesemideslip" formControlName="lechesemideslip" [(ngModel)]="calculadoraForm.value.lechesemideslip" disabled></td>
+        <td><input type="number" class="form-control" id="lechesemideshco" formControlName="lechesemideshco" [(ngModel)]="calculadoraForm.value.lechesemideshco" disabled></td>
+        <td><input type="number" class="form-control" id="lechesemidese" formControlName="lechesemidese" [(ngModel)]="calculadoraForm.value.lechesemidese" disabled></td>
       </tr>
       <tr>
         <th scope="row">Leche entera</th>
-        <td><input type="number" class="form-control"></td>
-        <td><input type="number" class="form-control" disabled></td>
-        <td><input type="number" class="form-control" disabled></td>
-        <td><input type="number" class="form-control" disabled></td>
-        <td><input type="number" class="form-control" disabled></td>
+        <td><input type="number" id="lecheent" class="form-control" formControlName="lecheent"></td>
+        <td><input type="number" class="form-control" id="lecheentpro" formControlName="lecheentpro" [(ngModel)]="calculadoraForm.value.lecheentpro" disabled></td>
+        <td><input type="number" class="form-control" id="lecheentlip" formControlName="lecheentlip" [(ngModel)]="calculadoraForm.value.lecheentlip" disabled></td>
+        <td><input type="number" class="form-control" id="lecheenhco" formControlName="lecheenhco" [(ngModel)]="calculadoraForm.value.lecheenhco" disabled></td>
+        <td><input type="number" class="form-control" id="lechentse" formControlName="lechentse" [(ngModel)]="calculadoraForm.value.lechentse" disabled></td>
       </tr>
       <tr>
         <th scope="row">Leche c/azucar</th>
-        <td><input type="number" class="form-control"></td>
-        <td><input type="number" class="form-control" disabled></td>
-        <td><input type="number" class="form-control" disabled></td>
-        <td><input type="number" class="form-control" disabled></td>
-        <td><input type="number" class="form-control" disabled></td>
+        <td><input type="number" id="lecheazu" class="form-control" formControlName="lecheazu"></td>
+        <td><input type="number" class="form-control" id="lecheazupro" formControlName="lecheazupro" [(ngModel)]="calculadoraForm.value.lecheazupro" disabled></td>
+        <td><input type="number" class="form-control" id="lecheazulip" formControlName="lecheazulip" [(ngModel)]="calculadoraForm.value.lecheazulip" disabled></td>
+        <td><input type="number" class="form-control" id="lecheazuhco" formControlName="lecheazuhco" [(ngModel)]="calculadoraForm.value.lecheazuhco" disabled></td>
+        <td><input type="number" class="form-control" id="lecheazue" formControlName="lecheazue" [(ngModel)]="calculadoraForm.value.lecheazue" disabled></td>
       </tr>
       <tr>
         <th scope="row">Aceygrasas s/proteinas</th>
-        <td><input type="number" class="form-control"></td>
+        <td><input type="number" id="aceygraspro" class="form-control" formControlName="aceygraspro"></td>
         <td><input type="number" class="form-control" placeholder="---" disabled></td>
-        <td><input type="number" class="form-control" disabled></td>
+        <td><input type="number" class="form-control" id="aceygrasprolip" formControlName="aceygrasprolip" [(ngModel)]="calculadoraForm.value.aceygrasprolip"disabled></td>
         <td><input type="number" class="form-control" placeholder="---" disabled></td>
-        <td><input type="number" class="form-control" disabled></td>
+        <td><input type="number" class="form-control" id="aceygrasproe" formControlName="aceygrasproe" [(ngModel)]="calculadoraForm.value.aceygrasproe"disabled></td>
       </tr>
       <tr>
         <th scope="row">Aceygrasas c/proteinas</th>
-        <td><input type="number" class="form-control"></td>
-        <td><input type="number" class="form-control" disabled></td>
-        <td><input type="number" class="form-control" disabled></td>
-        <td><input type="number" class="form-control" disabled></td>
-        <td><input type="number" class="form-control" disabled></td>
+        <td><input type="number" id="aceygracpro" class="form-control" formControlName="aceygracpro"></td>
+        <td><input type="number" class="form-control" id="aceygracpropro" formControlName="aceygracpropro" [(ngModel)]="calculadoraForm.value.aceygracpropro" disabled></td>
+        <td><input type="number" class="form-control" id="aceygracprolip" formControlName="aceygracprolip" [(ngModel)]="calculadoraForm.value.aceygracprolip" disabled></td>
+        <td><input type="number" class="form-control" id="aceygracprohco" formControlName="aceygracprohco" [(ngModel)]="calculadoraForm.value.aceygracprohco" disabled></td>
+        <td><input type="number" class="form-control" id="aceygracproe" formControlName="aceygracproe" [(ngModel)]="calculadoraForm.value.aceygracproe" disabled></td>
       </tr>
       <tr>
         <th scope="row">Azucar s/grasa</th>
-        <td><input type="number" class="form-control"></td>
+        <td><input type="number" id="azusgrasa" class="form-control" formControlName="azusgrasa"></td>
         <td><input type="number" class="form-control" placeholder="---" disabled></td>
         <td><input type="number" class="form-control" placeholder="---" disabled></td>
-        <td><input type="number" class="form-control" disabled></td>
-        <td><input type="number" class="form-control" disabled></td>
+        <td><input type="number" class="form-control" id="azusgrasahco" formControlName="azusgrasahco" [(ngModel)]="calculadoraForm.value.azusgrasahco" disabled></td>
+        <td><input type="number" class="form-control" id="azusgrasae" formControlName="azusgrasae" [(ngModel)]="calculadoraForm.value.azusgrasae" disabled></td>
       </tr>
       <tr>
         <th scope="row">Azucar c/grasa</th>
-        <td><input type="number" class="form-control"></td>
+        <td><input type="number" id="azucgrasa" class="form-control" formControlName="azucgrasa"></td>
         <td><input type="number" class="form-control" placeholder="---" disabled></td>
-        <td><input type="number" class="form-control" disabled></td>
-        <td><input type="number" class="form-control" disabled></td>
-        <td><input type="number" class="form-control" disabled></td>
+        <td><input type="number" class="form-control" id="azucgrasalip" formControlName="azucgrasalip" [(ngModel)]="calculadoraForm.value.azucgrasalip" disabled></td>
+        <td><input type="number" class="form-control" id="azucgrasahco" formControlName="azucgrasahco" [(ngModel)]="calculadoraForm.value.azucgrasahco" disabled></td>
+        <td><input type="number" class="form-control" id="azucgrasae" formControlName="azucgrasae" [(ngModel)]="calculadoraForm.value.azucgrasae" disabled></td>
       </tr>
+      <!--Suma de los elementos calculados-->
       <tr>
         <th scope="row">Totales</th>
         <td><input type="number" class="form-control" disabled></td>
+        <td><input type="number" id="sumprot" class="form-control" formControlName="sumprot" [(ngModel)]="calculadoraForm.value.sumprot" disabled></td>
+        <td><input type="number" id="sumlip" class="form-control" formControlName="sumlip" [(ngModel)]="calculadoraForm.value.sumlip"disabled></td>
+        <td><input type="number" id="sumhco" class="form-control" formControlName="sumhco" [(ngModel)]="calculadoraForm.value.sumhco"disabled></td>
+        <td><input type="number" id="sume" class="form-control" formControlName="sume" [(ngModel)]="calculadoraForm.value.sume"disabled></td>
+      </tr>
+            <!--Porcentaje que la persona deberia tener idealmente-->
+
+      <tr>
+        <th scope="row">Porcentajes %</th>
         <td><input type="number" class="form-control" disabled></td>
-        <td><input type="number" class="form-control" disabled></td>
-        <td><input type="number" class="form-control" disabled></td>
+        <td><input type="number" id="porceprot" class="form-control" formControlName="porceprot" [(ngModel)]="calculadoraForm.value.porceprot"></td>
+        <td><input type="number" id="porcelip" class="form-control" formControlName="porcelip" [(ngModel)]="calculadoraForm.value.porcelip"></td>
+        <td><input type="number" id="porcehco" class="form-control" formControlName="porcehco" [(ngModel)]="calculadoraForm.value.porcehco"></td>
+        <td><input type="number" id="porcee" class="form-control" formControlName="porcee" [(ngModel)]="calculadoraForm.value.porcee"></td>
       </tr>
 
+            <!--Resta de los elementos calculados y lo ideal-->
+
+      <tr>
+        <th scope="row">Resta</th>
+        <td><input type="number" class="form-control" disabled></td>
+        <td><input type="number" id="restaprot" class="form-control" formControlName="restaprot" [(ngModel)]="calculadoraForm.value.restaprot" disabled></td>
+        <td><input type="number" id="restalip" class="form-control" formControlName="restalip" [(ngModel)]="calculadoraForm.value.restalip"disabled></td>
+        <td><input type="number" id="restahco" class="form-control" formControlName="restahco" [(ngModel)]="calculadoraForm.value.restahco"disabled></td>
+        <td><input type="number" id="restae" class="form-control" formControlName="restae" [(ngModel)]="calculadoraForm.value.restae"disabled></td>
+      </tr>
     </tbody>
   </table>
 </div>

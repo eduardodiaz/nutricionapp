@@ -1,13 +1,16 @@
 <h3>Listado de pacientes</h3>
+<!-- Boton para ingresar a agregar nuevo paciente -->
 <a class="btn btn-primary float-md-right" routerLink="/addpacientes">Añadir nuevo Paciente <i class="fas fa-users"></i></a>
-
-<input type="search" class="form-control" placeholder="Teclee tipo de usuario...."
+<!--input que nos permite realizar la busqueda de un paciente mediante su nombre-->
+<input type="search" class="form-control" placeholder="Teclee nombre del paciente..."
       [formControl]="campoBusqueda">
 
+<!--elemento que se muestra cuando se esta cargando la informacion-->
 <div *ngIf="cargando" class="text-center" style="padding-top: 60px">
   <img src="../../../assets/cargando.gif" alt="cargando">
 </div>
 <br>
+<!--Cuando se realiza la busqueda y encuentra coincidencias, muestra los resultados en pantalla-->
 <div *ngIf="resultados">
 <table class="table table-bordered table-hover table-sm" style="margin-top:60px">
   <thead>
@@ -35,12 +38,17 @@
       <td>{{ paciente.direccion }}</td>
       <td>{{ paciente.motivoconsulta}}</td>
       <td>
+          <!--boton que permite editar algun paciente en especifico mediante su id-->
+
           <button type="button" class="btn btn-success"
                   routerLink="/editpacientes/{{paciente.id$}}">
             <i class="fas fa-pencil-alt"></i>
           </button>
         </td>
         <td>
+
+         <!--Boton que permite eliminar algun elemento de la lsita-->
+
           <button type="button" class="btn btn-danger"
                   (click)="eliminarPaciente(paciente.id$)">
             <i class="fas fa-trash-alt"></i>

@@ -2,16 +2,19 @@
   <div class="col col-md"></div>
   <div class="col-10 col-md-8">
     <h2>Añadir nuevo paciente</h2>
+      <!--Boton que nos permite regresar al apartado pacientes-->
     <a class="btn btn-warning float-md-right" routerLink="/pacientes">Regresar</a>
-
+    <!--Formgroup del formulario y evento onSubmit-->
     <form [formGroup]="pacienteForm" (ngSubmit)="onSubmit()">
       <div class="form-group">
-        <label for="paciente">Paciente</label>
+        <label for="paciente">Paciente</label> <!--Etiqueta de un input-->
         <input type="text"
                 class="form-control"
                 id="paciente"
-                formControlName="paciente">
-        <p class="alert alert-danger"
+                formControlName="paciente"> <!--atributos del componente-->
+                
+                <!--Validaciones del input en caso de que este invalidado y haya sido tocado-->
+                <p class="alert alert-danger"
             *ngIf="pacienteForm.controls.paciente.invalid &&
                     pacienteForm.controls.paciente.touched">
           El campo Paciente es obligatorio.          
@@ -31,6 +34,8 @@
       </div>
       <div class="form-group">
         <label for="sexo">Sexo</label>
+                <!--Select con los optiones dentro de si-->
+
         <select class="form-control"
             id="tipo"
             formControlName="sexo">
@@ -104,12 +109,16 @@
           El campo Motivo Consulta es obligatorio.          
         </p>
       </div>
-      <button type="submit"
+        <!--Boton que desencadena el evento onSubmit, en caso de que algunos de los elementos este invalidado, no se activara-->
+        <button type="submit"
               class="btn btn-primary"
               [disabled]="!pacienteForm">
         Añadir Paciente      
       </button>
+        <!--Boton de cancelar y dirige al apartado pacientes-->
+
       <a class="btn btn-danger" routerLink="/pacientes">Cancelar</a>
+          <!--En caso de que alguno de los elementos no se haya completado, se mostrara la leyenda que pide llenar todos los datos-->
       <p class="alert alert-danger"
         *ngIf="!pacienteForm.valid">
         Favor de llenar todos los campos obligatorios.

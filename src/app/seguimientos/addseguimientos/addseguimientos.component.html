@@ -2,14 +2,18 @@
   <div class="co col-md"></div>
   <div class="col-10 col-md-8">
     <h2>Añadir nuevo seguimiento</h2>
+     <!-- Boton para regresar del addseguimientos a seguimientos -->
     <a class="btn btn-warning float-md-right" routerLink="/seguimientos">Regresar</a>
+    <!-- Nombre del formGroup a donde se asignan los componentes y que se accionara en el evento onSubmit -->
     <form [formGroup]="seguimientoForm" (ngSubmit)="onSubmit()">
+           <!-- Group del componente -->
       <div class="form-group">
-        <label for="nombre">Nombre</label>
+        <label for="nombre">Nombre</label> <!-- Nombre de la etiqueta -->
         <input type="text"
                 class="form-control"
                 id="nombre"
                 formControlName="nombre">
+          <!-- Validacion del componenten si ha sido invalidado y tocado -->
         <p class="alert alert-danger"
             *ngIf="seguimientoForm.controls.nombre.invalid &&
                   seguimientoForm.controls.nombre.touched">
@@ -124,12 +128,15 @@
           El campo P art es obligatorio.          
         </p>
       </div>
+      <!-- Boton que ejecuta el submit de los datos, aparece descativado si el formulario esta invalidado -->
       <button type="submit"
                 class="btn btn-primary"
                 [disabled]="!seguimientoForm.valid">
         Añadir Seguimiento        
       </button>
+        <!-- Boton de regreso  -->
       <a class="btn btn-danger" routerLink="/seguimientos">Cancelar</a>
+      <!-- Etiqueda que nos dice que tenemos que llenar todos los campos del formulario -->
       <p class="alert alert-danger"
           *ngIf="!seguimientoForm.valid">
         Favor de llenar todos los campos obligatorios.  

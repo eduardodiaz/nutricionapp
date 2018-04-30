@@ -4,7 +4,10 @@ import { Routes, RouterModule } from '@angular/router';
 import { FormsModule } from '@angular/forms';
 import { ReactiveFormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
+//importaciones hechas para trabajar con formularios, rutas, modulos de formularios, peticiones http
 
+
+//Elementos o componentes dentro de la app, asi como tambien servicios que esta utiliza
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './header/header.component';
 import { InicioComponent } from './inicio/inicio.component';
@@ -30,6 +33,8 @@ import { IniciosesionComponent } from './autentificacion/iniciosesion/iniciosesi
 import { GuardService } from './servicios/guard.service';
 import { TablaalimentosComponent } from './tablaalimentos/tablaalimentos/tablaalimentos.component';
 
+
+//rutas las que podemos acceder tanto si estamos logueados, como si no lo estamos...canActivate, nos permite proteger la ruta para que solo se pueda acceder mediante logueo
 const routes: Routes = [
   { path: '', component: InicioComponent },
   { path: 'alimentos', component: AlimentosComponent, canActivate: [GuardService] },
@@ -52,6 +57,7 @@ const routes: Routes = [
  
 
 
+//modulos agregados en ngModule
 @NgModule({
   declarations: [
     AppComponent,
@@ -73,6 +79,7 @@ const routes: Routes = [
     IniciosesionComponent,
     TablaalimentosComponent
     ],
+    //importaciones que nos permiten trabajar con los servicios arriba importados
   imports: [
     BrowserModule,
     RouterModule.forRoot(routes),
@@ -80,6 +87,7 @@ const routes: Routes = [
     ReactiveFormsModule,
     HttpModule
   ],
+  //proveedores, servicios...son los servicios que declaramos para utilizar dentro de la app, si no los colocamos en providers, nuestra app puede contenerlos pero uno utilizarlos
   providers: [AlimentosService, 
               PacientesService,
               AntecedentesService,

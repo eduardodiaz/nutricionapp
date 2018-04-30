@@ -2,17 +2,18 @@
   <div class="col col-md"></div>
   <div class="col-10 col-md-8"> 
     <h2>Añadir nuevo alimento</h2>
-    <a class="btn btn-warning float-md-right" routerLink="/alimentos">Regresar</a>
-    <form [formGroup]="alimentoForm" (ngSubmit)="onSubmit()">
-      <div class="form-group">
+    <a class="btn btn-warning float-md-right" routerLink="/alimentos">Regresar</a> <!-- Boton para regresar del addalimentos a alimentos -->
+    <!-- Nombre del formGroup a donde se asignan los componentes y que se accionara en el evento onSubmit -->
+    <form [formGroup]="alimentoForm" (ngSubmit)="onSubmit()"><!-- Group del componente -->
+      <div class="form-group"><!-- Nombre de la etiqueta -->
         <label for="alimento">Alimento</label>
         <input type="text"
                 class="form-control"
                 id="alimento"
-                formControlName="alimento">
+                formControlName="alimento"> <!-- Elementos del componente -->
         <p class="alert alert-danger" 
             *ngIf="alimentoForm.controls.alimento.invalid &&
-                    alimentoForm.controls.alimento.touched">
+                    alimentoForm.controls.alimento.touched"> <!-- Validacion del componenten si ha sido invalidado y tocado -->
           El campo Alimento es obligatorio.
         </p>
       </div>
@@ -44,7 +45,7 @@
         <label for="tipo">Tipo</label>
         <select class="form-control"
                     id="tipo"
-                    formControlName="tipo">
+                    formControlName="tipo"> <!-- Componente tipo select con las opciones -->
                     <option value="">Seleccione...</option>
                     <option value="Frutas">Frutas</option>
                     <option value="Verduras">Verduras</option>
@@ -72,12 +73,14 @@
       </div>
       <button type="submit"
               class="btn btn-primary"
-              [disabled]="!alimentoForm.valid">
+              [disabled]="!alimentoForm.valid"> <!-- Boton que ejecuta el submit de los datos, aparece descativado si el formulario esta invalidado -->
               Añadir Alimento
       </button>
+       <!-- Boton de regreso  -->
       <a class="btn btn-danger" routerLink="/alimentos">Cancelar</a>
       <p class="alert alert-danger"
           *ngIf="!alimentoForm.valid">
+           <!-- Etiqueda que nos dice que tenemos que llenar todos los campos del formulario -->
         Favor de llenar todos los campos obligatorios.  
       </p>
     </form>

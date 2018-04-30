@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { PacientesService } from '../../servicios/pacientes.service';
+/*Impotaciones para usar los formulariosy el servicio */
 
 @Component({
   selector: 'app-addpacientes',
@@ -9,12 +10,15 @@ import { PacientesService } from '../../servicios/pacientes.service';
 })
 export class AddpacientesComponent implements OnInit {
 
-  pacienteForm: FormGroup;
-  paciente: any;
+  pacienteForm: FormGroup; /*Nombre del formGroup del html */
+  paciente: any; /*Nombre de el objeto donde se registraran los datos */
+
+  /*constructor donde se llama a PacientesService */
 
   constructor(private pf: FormBuilder,
               private pacienteService: PacientesService) { }
 
+  //metodo donde se validan los datos del objeto
   ngOnInit() {
     this.pacienteForm = this.pf.group({
       paciente: ['', Validators.required ],
@@ -28,6 +32,8 @@ export class AddpacientesComponent implements OnInit {
     });
   }
 
+  //metodo onSubmit que se desencadena cuando se llenan los datos del registro, guarda los datos del paciente en la base de datos usando PacientesService
+
   onSubmit(){
     this.paciente = this.savePaciente();
     this.pacienteService.postPaciente(this.paciente)
@@ -36,6 +42,8 @@ export class AddpacientesComponent implements OnInit {
       })
       this.pacienteForm.reset();
   }
+
+  //Se guardan los datos del obejto, trayendolos del formulario segun su nombre
 
   savePaciente(){
     const savePaciente = {

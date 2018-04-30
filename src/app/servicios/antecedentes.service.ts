@@ -1,15 +1,21 @@
 import { Injectable } from '@angular/core';
 import { Headers, Http, Response } from '@angular/http';
 import 'rxjs/Rx';
+/**importaciones realizadas para que trabaje el sercivio de los antecedentes, peticiones http */
 
 
 @Injectable()
 export class AntecedentesService {
+  //url de las conexiones de bases de datos a firebase
 
   antecedentesURL = 'https://appnutricion-c6606.firebaseio.com/antecedentes.json';
   antecedenteURL = 'https://appnutricion-c6606.firebaseio.com/antecedentes';
-
+  
+  
+  //se inicializa http
   constructor(private http: Http) { }
+
+    //postea los datos en la base de datos haciendo uso del metodo post
 
   postAntecedentes(antecedente: any){
     const newantecedente = JSON.stringify(antecedente);
@@ -24,6 +30,8 @@ export class AntecedentesService {
       })
   }
 
+    //recupera los datos de la base de datos haciendo uso del metodo get
+
   getAntecedentes(){
     return this.http.get(this.antecedentesURL)
       .map(
@@ -31,11 +39,16 @@ export class AntecedentesService {
       );
   }
 
+    //recupera datos de la base de datos pero un registro en concreto gracias a su id
+
   getAntecedente(id$: string){
     const url = `${this.antecedenteURL}/${id$}.json`;
     return this.http.get(url)
       .map( res => res.json());
   }
+
+
+    //actualiza los registros de la base de datos gracias a su id
 
   putAntecedente(antecedente: any, id$: string){
     const newantecedente = JSON.stringify(antecedente);
@@ -52,6 +65,9 @@ export class AntecedentesService {
       })
   }
 
+
+  //elimina un registro en especifico de la base de datos haciendo uso de su id
+
   delAntecedente(id$: string){
     const url = `${this.antecedenteURL}/${id$}.json`;
     if(confirm('de verdad quieres borrarlo?')){
@@ -61,6 +77,9 @@ export class AntecedentesService {
     }
   }
 }
+
+
+  //realiza busqueda en la base de datos haciendo uso de algun criterio previamente establecido para que se puedan encontrar coincidencias
 
   getAntecedentesSearch(busqueda: string){
     //indica cual sera el campo a buscar

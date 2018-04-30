@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { AutentificacionService } from '../../servicios/autentificacion.service';
 import { Router, ActivatedRoute } from '@angular/router';
+/*Impotaciones para usar los formularios, validaciones, enrutado y el servicio */
 
 
 @Component({
@@ -11,15 +12,20 @@ import { Router, ActivatedRoute } from '@angular/router';
 })
 export class IniciosesionComponent implements OnInit {
 
-  loginForm: FormGroup;
-  userdata: any;
+  loginForm: FormGroup; /*Nombre del formGroup del html */
+  userdata: any; /*Nombre de el objeto donde se registraran los datos */
   
-  mensaje = false;
+  mensaje = false; //variable booleana para el mensaje
+
+
+    /*constructor donde se llama a AutentificacionService */
 
   constructor(private formBuilder: FormBuilder,
               private autentificacionService: AutentificacionService,
               private router: Router,
               private activatedRouter: ActivatedRoute) { }
+
+  //metodo donde se inicializan los elementos del formulario y se colocan validaciones
 
   ngOnInit() {
     this.loginForm = this.formBuilder.group({
@@ -31,6 +37,8 @@ export class IniciosesionComponent implements OnInit {
     })
   }
 
+  //metodo que se ejecuta del componente html, verifica los datos de registro haciendo uso de AutentificacionService
+  //si no esta registrado o los datos son incorrectos, mostrara un mensaje 
   onSubmit(){
     this.userdata = this.saveUserdata();
     this.autentificacionService.inicioSesion(this.userdata);
@@ -41,6 +49,9 @@ export class IniciosesionComponent implements OnInit {
     }, 2000);
   }
 
+
+  //metodo donde registran los datos del formulario
+
   saveUserdata(){
     const saveUserdata = {
       email: this.loginForm.get('email').value,
@@ -49,6 +60,9 @@ export class IniciosesionComponent implements OnInit {
 
     return saveUserdata;
 }
+
+
+//metodo que verifica si esta autentificado ayudandose de AutentificacionService
 
   isAuth(){
     return this.autentificacionService.isAuthenticated();

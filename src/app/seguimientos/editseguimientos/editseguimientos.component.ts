@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { Router, ActivatedRoute } from '@angular/router';
 import { SeguimientosService } from '../../servicios/seguimientos.service';
+/*Impotaciones para usar los formularios, validaciones, enrutado y el servicio */
 
 
 
@@ -12,22 +13,24 @@ import { SeguimientosService } from '../../servicios/seguimientos.service';
 })
 export class EditseguimientosComponent implements OnInit {
 
-  seguimientoForm: FormGroup;
-  seguimiento: any;
-  id: string;
+  seguimientoForm: FormGroup; /*Nombre del formGroup del html */
+  seguimiento: any; /*Nombre de el objeto donde se registraran los datos */
+  id: string; //id que se asigna a cada uno de los elementos de la lista
 
+
+       /* Metodo donde se inicializan los componentes de la clase */
   constructor(private pf: FormBuilder,
               private seguimientoService: SeguimientosService,
               private router: Router,
               private activatedRouter: ActivatedRoute) { 
-                this.activatedRouter.params 
+                this.activatedRouter.params  //permite poder hacer o tomar rutas  por medio del id de cada elemento de la lista, hace uso de AlimentoService
                   .subscribe(parametros => {
                     this.id = parametros['id'];
                     this.seguimientoService.getSeguimiento(this.id) 
                       .subscribe(seguimiento => this.seguimiento = seguimiento)
                   });
               }
-
+  /* Metodo donde se inicializan los componentes de la clase */
   ngOnInit() {
     this.seguimientoForm = this.pf.group({
       nombre: ['', Validators.required ],
@@ -43,6 +46,8 @@ export class EditseguimientosComponent implements OnInit {
     });
   }
 
+  /*Metodo onSubmit que se desencadena cuando se ocurre dicho metodo y ejecuta las acciones que estan dentro de él */
+
   onSubmit(){
     this.seguimiento = this.saveSeguimiento();
     this.seguimientoService.putSeguimiento(this.seguimiento, this.id)
@@ -52,6 +57,7 @@ export class EditseguimientosComponent implements OnInit {
       this.seguimientoForm.reset();
   }
 
+      /*Metodo que almacena los datos del objeto que es llamado por onSubmit */
   saveSeguimiento(){
     const saveSeguimiento = {
       nombre: this.seguimientoForm.get('nombre').value,

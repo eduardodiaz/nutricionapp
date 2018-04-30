@@ -2,16 +2,20 @@
     <div class="col col-md"></div>
     <div class="col-10 col-md-8"> 
       <h2>Editar alimento</h2>
+      <!-- Boton para regresar del addalimentos a alimentos -->
       <a class="btn btn-warning float-md-right" routerLink="/alimentos">Regresar</a>
+       <!-- Nombre del formGroup a donde se asignan los componentes y que se accionara en el evento onSubmit -->
       <form [formGroup]="alimentoForm" (ngSubmit)="onSubmit()">
+        <!-- Group del componente -->
         <div class="form-group">
-          <label for="alimento">Alimento</label>
+          <label for="alimento">Alimento</label><!-- Nombre de la etiqueta -->
           <input type="text"
                   class="form-control"
                   id="alimento"
                   formControlName="alimento"
                   [(ngModel)]="alimento.alimento"
-                  disabled>
+                  disabled> <!-- Elementos del componente, uso de ngModel que permite mostrar informacion que ha sido traida desde la base de datos mediante su id -->
+           <!-- Validacion del componenten si ha sido invalidado y tocado -->        
           <p class="alert alert-danger" 
               *ngIf="alimentoForm.controls.alimento.invalid &&
                       alimentoForm.controls.alimento.touched">
@@ -46,6 +50,7 @@
         </div>
         <div class="form-group">
           <label for="tipo">Tipo</label>
+          <!-- Componente tipo select con las opciones -->
           <select class="form-control"
                     id="tipo"
                     formControlName="tipo">
@@ -74,10 +79,12 @@
             El campo Tipo es obligatorio.
           </p>
         </div>
+        <!-- Boton que ejecuta el submit de los datos -->
         <button type="submit"
                 class="btn btn-primary">
                 Guardar Cambios
         </button>
+        <!-- Boton de regreso  -->
         <a class="btn btn-danger" routerLink="/alimentos">Cancelar</a>
       </form>
     </div>

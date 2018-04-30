@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { Router, ActivatedRoute } from '@angular/router';
 import { AntecedentesService } from '../../servicios/antecedentes.service';
+/*Impotaciones para usar los formularios, validaciones, enrutado y el servicio */
 
 
 
@@ -12,21 +13,25 @@ import { AntecedentesService } from '../../servicios/antecedentes.service';
 })
 export class EditantecedentesComponent implements OnInit {
 
-  antecedenteForm: FormGroup;
-  antecedente: any;
-  id: string;
+  antecedenteForm: FormGroup; /*Nombre del formGroup del html */
+  antecedente: any;  /*Nombre de el objeto donde se registraran los datos */
+  id: string; //id que se asigna a cada uno de los elementos de la lista
 
+
+       /* Metodo donde se inicializan los componentes de la clase */
   constructor(private pf: FormBuilder,
               private antecedenteService: AntecedentesService,
               private router: Router,
               private activatedRouter: ActivatedRoute) {
-                this.activatedRouter.params 
+                this.activatedRouter.params  //permite poder hacer o tomar rutas  por medio del id de cada elemento de la lista, hace uso de AntecedentesService
                   .subscribe(parametros => {
                     this.id = parametros['id'];
                     this.antecedenteService.getAntecedente(this.id) 
                       .subscribe(antecedente => this.antecedente = antecedente)
                   });
                }
+
+  /* Metodo donde se inicializan los componentes de la clase */
 
   ngOnInit() {
     this.antecedenteForm = this.pf.group({
@@ -46,6 +51,7 @@ export class EditantecedentesComponent implements OnInit {
     });
   }
 
+    /*Metodo onSubmit que se desencadena cuando se ocurre dicho metodo y ejecuta las acciones que estan dentro de él */
 
   onSubmit(){
     this.antecedente = this.saveAntecedente();
@@ -55,6 +61,9 @@ export class EditantecedentesComponent implements OnInit {
       })
       this.antecedenteForm.reset();
 }
+
+
+    /*Metodo que almacena los datos del objeto que es llamado por onSubmit */
 
 saveAntecedente(){
   const saveAntecedente = {

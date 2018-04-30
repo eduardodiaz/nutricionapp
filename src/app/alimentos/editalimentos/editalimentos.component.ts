@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { Router, ActivatedRoute } from '@angular/router';
 import { AlimentosService } from '../../servicios/alimentos.service';
+/*Impotaciones para usar los formularios, validaciones, enrutado y el servicio */
 
 
 @Component({
@@ -11,21 +12,26 @@ import { AlimentosService } from '../../servicios/alimentos.service';
 })
 export class EditalimentosComponent implements OnInit {
 
-  alimentoForm: FormGroup;
-  alimento: any;
-  id: string;
+  alimentoForm: FormGroup; /*Nombre del formGroup del html */
+  alimento: any; /*Nombre de el objeto donde se registraran los datos */
+  id: string; //id que se asigna a cada uno de los elementos de la lista
+
+
+     /* Metodo donde se inicializan los componentes de la clase */
 
   constructor(private pf: FormBuilder,
               private alimentoService: AlimentosService,
               private router: Router,
               private activatedRouter: ActivatedRoute) {
-                this.activatedRouter.params
+                this.activatedRouter.params //permite poder hacer o tomar rutas  por medio del id de cada elemento de la lista, hace uso de AlimentoService
                   .subscribe(parametros => {
                     this.id = parametros['id'];
                     this.alimentoService.getAlimento(this.id)
                       .subscribe(alimento => this.alimento = alimento)
                   });
                }
+
+ /* Metodo donde se inicializan los componentes de la clase */
 
   ngOnInit() {
 
@@ -36,6 +42,7 @@ export class EditalimentosComponent implements OnInit {
       tipo: ['', Validators.required ]
     });
   }
+    /*Metodo onSubmit que se desencadena cuando se ocurre dicho metodo y ejecuta las acciones que estan dentro de él */
 
   onSubmit(){
     this.alimento = this.saveAlimento();
@@ -45,6 +52,8 @@ export class EditalimentosComponent implements OnInit {
       })
       this.alimentoForm.reset();
   }
+
+      /*Metodo que almacena los datos del objeto que es llamado por onSubmit */
 
   saveAlimento(){
     const saveAlimento = {
